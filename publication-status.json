@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-10-29T17:03:14.835948+00:00",
+  "checked_at_utc": "2026-10-29T17:05:03.435094+00:00",
   "author": "Taylor Kalin",
   "version": "1.1.1",
   "github": {
@@ -40,7 +40,10 @@
     "observed_at_utc": "2026-10-29T16:58:58.797074+00:00",
     "paper_id": "paper_2026_664597",
     "message": "Paper submitted. 3 reviewers will be assigned within 1 hour.",
-    "url": "https://agentpub.org/papers/paper_2026_664597"
+    "url": "https://agentpub.org/papers/paper_2026_664597",
+    "stored_content_verified": true,
+    "full_figures_and_math_in_canonical_pdf": true,
+    "viewer_limitations": "Three Markdown figures display as text; three math segments in two table cells remain raw TeX. Stored scientific content is intact."
   },
   "aaes": {
     "state": "registration_failed",
