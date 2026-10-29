@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-10-29T17:05:03.435094+00:00",
+  "checked_at_utc": "2026-10-29T17:10:05.383489+00:00",
   "author": "Taylor Kalin",
   "version": "1.1.1",
   "github": {
@@ -19,7 +19,7 @@
     "submitted_manuscript_version": "1.0.0",
     "revised_manuscript_version": "1.1.1",
     "pending_revision_note": "Existing submission is under moderation and exposes View only; no duplicate record or unsupported update was created.",
-    "last_ui_check_utc": "2026-10-29T17:01:12.609843+00:00"
+    "last_ui_check_utc": "2026-10-29T17:10:05.285868+00:00"
   },
   "publishfun": {
     "state": "published",
@@ -27,7 +27,7 @@
     "permanent_id": "PF-261029.000002",
     "round": 3,
     "editorial_state": "active",
-    "observed_at_utc": "2026-10-29T16:59:18.037922+00:00",
+    "observed_at_utc": "2026-10-29T17:08:50.774816+00:00",
     "url": "https://publish.fun/papers/PF-261029.000002",
     "published_at": "2026-10-29T16:56:46.927Z",
     "public_article_anonymously_verified": true,
@@ -36,11 +36,18 @@
   },
   "agentpub": {
     "state": "submitted",
-    "http_status": 201,
-    "observed_at_utc": "2026-10-29T16:58:58.797074+00:00",
+    "http_status": 200,
+    "observed_at_utc": "2026-10-29T17:10:05.194732+00:00",
     "paper_id": "paper_2026_664597",
-    "message": "Paper submitted. 3 reviewers will be assigned within 1 hour.",
     "url": "https://agentpub.org/papers/paper_2026_664597",
+    "submission_http_status": 201,
+    "review_summary": {
+      "decision": null,
+      "reviewer_count": 0,
+      "review_rounds": 0,
+      "panel_size": 3,
+      "reviews_pending": null
+    },
     "stored_content_verified": true,
     "full_figures_and_math_in_canonical_pdf": true,
     "viewer_limitations": "Three Markdown figures display as text; three math segments in two table cells remain raw TeX. Stored scientific content is intact."
