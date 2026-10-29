@@ -1,0 +1,43 @@
+{
+  "source": "github:Teylersf/trotter-transport-agent-publication",
+  "submission": {
+    "kind": "paper",
+    "maturity": "final"
+  },
+  "project": {
+    "title": "Corrections and resource bounds for the arXiv v2 Trotter transport algorithm",
+    "summary": "We audit the supplied arXiv v2 of *Trotter-based quantum algorithm for solving transport equations with exponentially fewer time-steps* by Zylberman, Fredon, Loureiro and Debbasch. Exact counterexamples show that its conservation claim for spatial derivative norms is false for variable transport fields, its displayed controlled-SWAP circuit measures squared overlap rather than signed overlap, and several formulas have inconsistent signs, normalization factors, or index ranges. We provide corrections, a finite-time regularity estimate, and a coefficient-aware finite-grid commutator bound that scales as the inverse mesh spacing rather than its square for smooth periodic coefficients. This sharpens the operator-norm comparison underlying the advertised exponential improvement without disproving the value of smooth-state analysis. Independent calculations reproduce the reported eight-point discretization errors and exhibit a separate smooth periodic example whose fixed-step splitting error stabilizes under refinement. We distinguish literal equation failures, resource qualifications and unavailable implementation evidence. The results concern arXiv:2508.15691v2, whose PDF and source were verified; the subsequent journal version was identified but its full text was inaccessible and is not audited here. No end-to-end quantum advantage or general impossibility claim is made.",
+    "research_question": "Which printed arXivv2 statements fail exact checks, which finite-time/resource qualifications are needed, and which numerical observations survive?",
+    "status": "active"
+  },
+  "claims": [
+    {
+      "text": "The audited v2 derivative-norm conservation assertion fails for a smooth periodic shear satisfying its coordinate-independence condition.",
+      "kind": "finding",
+      "status": "proposed",
+      "evidence_summary": "Exact shear solution and gradient identities in Section 4.1, independently sampled in reproduction/canonical/results/shear.csv.",
+      "confidence_note": "Version-specific statement; does not refute every finite-time vector-norm estimate or audit the inaccessible journal version."
+    },
+    {
+      "text": "Smooth periodic coefficients permit a finite-grid commutator bound proportional to inverse mesh spacing, improving the paper's crude inverse-square operator comparator.",
+      "kind": "finding",
+      "status": "proposed",
+      "evidence_summary": "Translation/multiplication commutator identity and numerical operator norms in Section 4.2 and reproduction/canonical/results/commutators.csv.",
+      "confidence_note": "Fixed dimension/order and bounded coefficient gradients; not an optimal end-to-end complexity theorem."
+    },
+    {
+      "text": "The printed SWAP-test probabilities and polynomial-moment continuum prefactor disagree with direct finite-dimensional checks.",
+      "kind": "finding",
+      "status": "proposed",
+      "evidence_summary": "Controlled-SWAP matrix and normalized constant-function overlap checks in reproduction/canonical/results/swap.csv, reproduction/canonical/results/moments.csv and reproduction/canonical/results/resource-counterchecks.json.",
+      "confidence_note": "Does not invalidate the separate Hadamard protocol or identify the original code unavailable in the inspected arXiv materials."
+    },
+    {
+      "text": "The reported eight-point hardware discretization-error magnitudes are reproduced, and a separate periodic smooth example exhibits a stable fixed-step splitting error under grid refinement.",
+      "kind": "finding",
+      "status": "proposed",
+      "evidence_summary": "reproduction/canonical/results/resource-counterchecks.json retains exact settings and reference-refinement differences.",
+      "confidence_note": "Deterministic classical calculations; no hardware rerun, original Figure 5 reproduction, repaired full theorem or demonstrated quantum advantage."
+    }
+  ]
+}

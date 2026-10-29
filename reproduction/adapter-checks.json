@@ -1,0 +1,248 @@
+{
+  "canonical_version": "1.0.0",
+  "scientific_code_commit": "1fb4be68eecce95b93adb8026c4e3d29fb442583",
+  "canonical_manuscript_sha256": "3da81ec4f0af5370e79b6d75702f9153173f5217570f2091ccb2e2b12dec5bae",
+  "preparer_sha256": "6ff533392bd65aec3be17f1c45b084da3ba3d8661bd55d783e4bea75bd2f203c",
+  "schema_snapshot_sha256": "04a9801ba164fa6bdfc5cd9d9099e67de4e826e4da3e0be02d5ffba98a673651",
+  "scientific_sections": 8,
+  "platform_sections": [
+    "Introduction",
+    "Related Work",
+    "Methodology",
+    "Results",
+    "Discussion",
+    "Limitations",
+    "Conclusion"
+  ],
+  "math_segments_in_scientific_body": 191,
+  "numbered_equations": 16,
+  "figures": 3,
+  "reference_records": 8,
+  "reference_source_blocks": [
+    "[1] J. Zylberman, T. Fredon, N. F. Loureiro and F. Debbasch, *Trotter-based quantum algorithm for solving transport equations with exponentially fewer time-steps*, arXiv:2508.15691v2 (25 August 2025). https://arxiv.org/abs/2508.15691v2 ; versioned PDF: https://arxiv.org/pdf/2508.15691v2 ; source: https://arxiv.org/src/2508.15691v2 . **Audited edition.**",
+    "[2] J. Zylberman, T. Fredon, N. F. Loureiro and F. Debbasch, same title, *Quantum Science and Technology* **11**, 025015 (2026). https://doi.org/10.1088/2058-9565/ae488e . **Existence and bibliographic metadata verified; full journal text not audited.**",
+    "[3] D. An, D. Fang and L. Lin, *Time-dependent unbounded Hamiltonian simulation with vector norm scaling*, *Quantum* **5**, 459 (2021). https://doi.org/10.22331/q-2021-05-26-459 ; https://arxiv.org/abs/2012.13105v3 .",
+    "[4] H. Buhrman, R. Cleve, J. Watrous and R. de Wolf, *Quantum Fingerprinting*, *Physical Review Letters* **87**, 167902 (2001). https://doi.org/10.1103/PhysRevLett.87.167902 ; https://arxiv.org/abs/quant-ph/0102001v1 . The controlled-SWAP probability is derived in Section 2 of the versioned preprint.",
+    "[5] G. Brassard, P. Hoyer, M. Mosca and A. Tapp, *Quantum Amplitude Amplification and Estimation*, Contemporary Mathematics **305**, 53-74 (2002); preprint (2000). https://arxiv.org/abs/quant-ph/0005055 .",
+    "[6] A. M. Childs, Y. Su, M. C. Tran, N. Wiebe and S. Zhu, *Theory of Trotter Error with Commutator Scaling*, *Physical Review X* **11**, 011020 (2021). https://doi.org/10.1103/PhysRevX.11.011020 ; https://arxiv.org/abs/1912.08854 . The distinction between commutator-aware and crude product-norm bounds provides context for Section 4.2.",
+    "[7] J. Welch, D. Greenbaum, S. Mostame and A. Aspuru-Guzik, *Efficient quantum circuits for diagonal unitaries without ancillas*, *New Journal of Physics* **16**, 033040 (2014). https://doi.org/10.1088/1367-2630/16/3/033040 ; https://arxiv.org/abs/1306.3991 .",
+    "[8] J. Zylberman, U. Nzongani, A. Simonetto and F. Debbasch, *Efficient Quantum Circuits for Non-Unitary and Unitary Diagonal Operators with Space-Time-Accuracy Trade-Offs*, *ACM Transactions on Quantum Computing* **6**(2), Article 15 (2025). https://doi.org/10.1145/3718348 ; https://arxiv.org/abs/2404.02819 ."
+  ],
+  "section_character_counts": {
+    "Introduction": {
+      "unicode_codepoints": 2907,
+      "utf16_code_units": 2907
+    },
+    "Related Work": {
+      "unicode_codepoints": 2391,
+      "utf16_code_units": 2391
+    },
+    "Methodology": {
+      "unicode_codepoints": 2961,
+      "utf16_code_units": 2961
+    },
+    "Results": {
+      "unicode_codepoints": 15944,
+      "utf16_code_units": 15944
+    },
+    "Discussion": {
+      "unicode_codepoints": 8150,
+      "utf16_code_units": 8150
+    },
+    "Limitations": {
+      "unicode_codepoints": 4574,
+      "utf16_code_units": 4574
+    },
+    "Conclusion": {
+      "unicode_codepoints": 1099,
+      "utf16_code_units": 1099
+    }
+  },
+  "body_regex_words": 5655,
+  "abstract_regex_words": 180,
+  "all_scientific_paragraphs_exact_after_allowed_adapter_reversal": true,
+  "ordered_math_segments_exact": true,
+  "abstract_exact": true,
+  "figure_captions_and_order_exact": true,
+  "all_reference_paragraphs_exact_in_full_edition": true,
+  "guideline_checks": {
+    "title_limit": true,
+    "abstract_word_limit": true,
+    "reference_minimum": true,
+    "body_word_range": true,
+    "required_sections_and_order": true
+  },
+  "all_guideline_checks_passed": true,
+  "copied_scientific_files": [
+    {
+      "canonical_path": "data/correction-registry.json",
+      "copy_path": "reproduction/canonical/data/correction-registry.json",
+      "bytes": 2171,
+      "sha256": "8f73c127ebaea76e0d0047451ab7a4d9bd0dfcdd9efd8c4970213e8e56f5c369"
+    },
+    {
+      "canonical_path": "data/reproducibility.json",
+      "copy_path": "reproduction/canonical/data/reproducibility.json",
+      "bytes": 1285,
+      "sha256": "a8740e9044d09111eee206a486e519648f90c4dc0397fa9195fc62bd4dcdb9c2"
+    },
+    {
+      "canonical_path": "experiments/build_paper.py",
+      "copy_path": "reproduction/canonical/experiments/build_paper.py",
+      "bytes": 1519,
+      "sha256": "d7729778fb2e3e0a6f7c6bf653ff244ca0d717090549e656b20d1a9728c14fff"
+    },
+    {
+      "canonical_path": "experiments/reproduce.py",
+      "copy_path": "reproduction/canonical/experiments/reproduce.py",
+      "bytes": 11719,
+      "sha256": "f402e7729a06ed301c3059db149d392b04107dad43c5f0a26247fd7023292244"
+    },
+    {
+      "canonical_path": "experiments/resource_counterchecks.py",
+      "copy_path": "reproduction/canonical/experiments/resource_counterchecks.py",
+      "bytes": 10556,
+      "sha256": "ae77e28e2cba04a6801f378ebd420b4e9e07be8dd39c4ac4a970020e98fb5f00"
+    },
+    {
+      "canonical_path": "figures/commutator-baselines.png",
+      "copy_path": "reproduction/canonical/figures/commutator-baselines.png",
+      "bytes": 89282,
+      "sha256": "5797315f07bd788dc711269d870e07ae5a059bbda01477eb95039f2693922d84"
+    },
+    {
+      "canonical_path": "figures/measurement-checks.png",
+      "copy_path": "reproduction/canonical/figures/measurement-checks.png",
+      "bytes": 85616,
+      "sha256": "cbf26492b4299a79c47d6ee445f71208442b7f19b4c1576c3ac8d2c94893b780"
+    },
+    {
+      "canonical_path": "figures/transport-checks.png",
+      "copy_path": "reproduction/canonical/figures/transport-checks.png",
+      "bytes": 126892,
+      "sha256": "3997dfd6bfe1076f1828f972b1a7ddf10a1c03a95f4097c5802043eded251316"
+    },
+    {
+      "canonical_path": "LICENSE-CODE",
+      "copy_path": "reproduction/canonical/LICENSE-CODE",
+      "bytes": 1069,
+      "sha256": "91a88df8a9fdb4dd941e50679485576218bebf63bb8bc974db60e05cd4cd96db"
+    },
+    {
+      "canonical_path": "paper/closing.md",
+      "copy_path": "reproduction/canonical/paper/closing.md",
+      "bytes": 7821,
+      "sha256": "2bbcf919b49d242079fb0dbacbb3aec9ecafc8b211c640ad88dc99496ecaa2b1"
+    },
+    {
+      "canonical_path": "paper/core.md",
+      "copy_path": "reproduction/canonical/paper/core.md",
+      "bytes": 25649,
+      "sha256": "11964240c12cd620786c96d484d9bcb0ac18df2511ee828136f9bb5743b90e5c"
+    },
+    {
+      "canonical_path": "paper/latex/body.tex",
+      "copy_path": "reproduction/canonical/paper/latex/body.tex",
+      "bytes": 43858,
+      "sha256": "0bb3ccf573a94b4cba68c241186f46cbe8664c70a2b97c5eb7c7bbe5990cb7e9"
+    },
+    {
+      "canonical_path": "paper/latex/images/commutator-baselines.png",
+      "copy_path": "reproduction/canonical/paper/latex/images/commutator-baselines.png",
+      "bytes": 89282,
+      "sha256": "5797315f07bd788dc711269d870e07ae5a059bbda01477eb95039f2693922d84"
+    },
+    {
+      "canonical_path": "paper/latex/images/measurement-checks.png",
+      "copy_path": "reproduction/canonical/paper/latex/images/measurement-checks.png",
+      "bytes": 85616,
+      "sha256": "cbf26492b4299a79c47d6ee445f71208442b7f19b4c1576c3ac8d2c94893b780"
+    },
+    {
+      "canonical_path": "paper/latex/images/transport-checks.png",
+      "copy_path": "reproduction/canonical/paper/latex/images/transport-checks.png",
+      "bytes": 126892,
+      "sha256": "3997dfd6bfe1076f1828f972b1a7ddf10a1c03a95f4097c5802043eded251316"
+    },
+    {
+      "canonical_path": "paper/latex/main.tex",
+      "copy_path": "reproduction/canonical/paper/latex/main.tex",
+      "bytes": 873,
+      "sha256": "91f6cbbd62ee1ab30e9c1ae14e484869bfb3850a118dced3b007b5d31d00a2ad"
+    },
+    {
+      "canonical_path": "paper/manuscript.md",
+      "copy_path": "reproduction/canonical/paper/manuscript.md",
+      "bytes": 41679,
+      "sha256": "3da81ec4f0af5370e79b6d75702f9153173f5217570f2091ccb2e2b12dec5bae"
+    },
+    {
+      "canonical_path": "paper/resource-discussion.md",
+      "copy_path": "reproduction/canonical/paper/resource-discussion.md",
+      "bytes": 8216,
+      "sha256": "62fdc4c00f7662f21ce12b06b28d52316ce82481e9184c141b3032007e6d97fa"
+    },
+    {
+      "canonical_path": "README.md",
+      "copy_path": "reproduction/canonical/README.md",
+      "bytes": 2690,
+      "sha256": "5d3fb42edc3f7fa534ad9932cd9a236042f5399aabf0afad12a1bf860a014ac0"
+    },
+    {
+      "canonical_path": "requirements.txt",
+      "copy_path": "reproduction/canonical/requirements.txt",
+      "bytes": 32,
+      "sha256": "adc7fa5a4dbaa7335c32c1e7d10cffae5c96f67ba2f5f22c8453c1bc11cf8e0a"
+    },
+    {
+      "canonical_path": "results/artifact-sha256.json",
+      "copy_path": "reproduction/canonical/results/artifact-sha256.json",
+      "bytes": 986,
+      "sha256": "5bebc78e5ff162b56a3bdf047b0a46b811da2a02fd54913a30c7d0bf135ad7d9"
+    },
+    {
+      "canonical_path": "results/commutators.csv",
+      "copy_path": "reproduction/canonical/results/commutators.csv",
+      "bytes": 487,
+      "sha256": "b293a9c52b98530441299a908953a4d2e11975ccdcd0d60e1ff3f572c02e2b2e"
+    },
+    {
+      "canonical_path": "results/moments.csv",
+      "copy_path": "reproduction/canonical/results/moments.csv",
+      "bytes": 372,
+      "sha256": "9a88dcad0c0628886a5ac93066a6b63acd3071faf27171273b45063d1e0abd4c"
+    },
+    {
+      "canonical_path": "results/resource-counterchecks.json",
+      "copy_path": "reproduction/canonical/results/resource-counterchecks.json",
+      "bytes": 7902,
+      "sha256": "10ab8daf768fe370b7112e869c05e500d11687b34ef1e24e49f4db0374463b0b"
+    },
+    {
+      "canonical_path": "results/shear.csv",
+      "copy_path": "reproduction/canonical/results/shear.csv",
+      "bytes": 467,
+      "sha256": "b6c87011934068c0c62811b069e717dbc20029117526fc85c7e9b2479afb6467"
+    },
+    {
+      "canonical_path": "results/summary.json",
+      "copy_path": "reproduction/canonical/results/summary.json",
+      "bytes": 1825,
+      "sha256": "e8a16b7204fce963302f06142cf637dce429d2c2097c94b871e68b65741a1273"
+    },
+    {
+      "canonical_path": "results/swap.csv",
+      "copy_path": "reproduction/canonical/results/swap.csv",
+      "bytes": 279,
+      "sha256": "fdcee455abbe8cfd4b53a2048a3fa46097c614c26d54f5f64c93c6d4b7227771"
+    },
+    {
+      "canonical_path": "results/translation.csv",
+      "copy_path": "reproduction/canonical/results/translation.csv",
+      "bytes": 216,
+      "sha256": "5d1ea14883d631c1ddeecde21093d301876482e75aba52973f333a390dcd1487"
+    }
+  ],
+  "submission_gate_open": false,
+  "note": "Original scientific paragraphs/equations are never condensed or padded. Platform references are structured from the complete canonical records. Figure link paths differ by declared route only. submitted_at is not registration evidence."
+}

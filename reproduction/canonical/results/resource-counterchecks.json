@@ -1,0 +1,197 @@
+{
+  "source": "User-supplied PDF byte-identical to arXiv:2508.15691v2 according to source-worker verification",
+  "python_version": "3.12.14",
+  "numpy_version": "2.3.5",
+  "producer_sha256": "ae77e28e2cba04a6801f378ebd420b4e9e07be8dd39c4ac4a970020e98fb5f00",
+  "sign_convention": {
+    "locator": "p4 Eq5; p9 Eq20; p30 EqB4",
+    "rows": [
+      {
+        "N": 16,
+        "relative_error_iD_vs_positive_derivative": 1.999221705820208,
+        "relative_error_iD_vs_negative_derivative": 0.0007782941797918224,
+        "hermiticity_residual": 0.0
+      },
+      {
+        "N": 32,
+        "relative_error_iD_vs_positive_derivative": 1.9999506820574635,
+        "relative_error_iD_vs_negative_derivative": 4.931794253654899e-05,
+        "hermiticity_residual": 0.0
+      },
+      {
+        "N": 64,
+        "relative_error_iD_vs_positive_derivative": 1.9999969069994223,
+        "relative_error_iD_vs_negative_derivative": 3.093000577519856e-06,
+        "hermiticity_residual": 0.0
+      }
+    ],
+    "interpretation": "With the explicitly printed forward ket shift, iD tends to minus the coefficient derivative. This diagnoses inconsistent definitions, not the unknown implementation."
+  },
+  "hardware_error_magnitudes": {
+    "locator": "pp15-16 Eq38, Eq39 and Figure7 caption",
+    "N": 8,
+    "p": 10,
+    "initial_state": [
+      0.5,
+      0.7071067811865475,
+      0.5,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rows": [
+      {
+        "t": 0.25,
+        "reported_rounded_state_error": 0.00036,
+        "printed_Eq5_Eq6_vs_positive_grid_shift": 1.414213607856744,
+        "printed_Eq5_Eq6_vs_negative_grid_shift": 0.0003586742105124433,
+        "sign_corrected_vs_positive_grid_shift": 0.0003586742105130123,
+        "sign_corrected_norm": 1.0000000000000004,
+        "positive_and_negative_shifts_identical": false
+      },
+      {
+        "t": 0.5,
+        "reported_rounded_state_error": 0.00072,
+        "printed_Eq5_Eq6_vs_positive_grid_shift": 0.000717348328740077,
+        "printed_Eq5_Eq6_vs_negative_grid_shift": 0.000717348328740077,
+        "sign_corrected_vs_positive_grid_shift": 0.0007173483287403552,
+        "sign_corrected_norm": 1.0000000000000007,
+        "positive_and_negative_shifts_identical": true
+      }
+    ],
+    "interpretation": "The stated error magnitudes are reproduced after the intended advection sign is used. At t=.5 the two directions coincide on this periodic grid, so t=.25 is the directional diagnostic."
+  },
+  "swap_test": {
+    "locator": "pp27-28 EqA15, EqA16 and Figure14",
+    "rows": [
+      {
+        "name": "positive_overlap",
+        "overlap_real": 0.7071067811865475,
+        "overlap_imag": 0.0,
+        "actual_P0": 0.7499999999999998,
+        "correct_P0_absolute_overlap_squared": 0.75,
+        "printed_A16_P0_real_overlap": 0.8535533905932737,
+        "P0_with_claimed_imaginary_phase_gate": 0.4999999999999998
+      },
+      {
+        "name": "negative_global_phase",
+        "overlap_real": -1.0,
+        "overlap_imag": 0.0,
+        "actual_P0": 0.9999999999999996,
+        "correct_P0_absolute_overlap_squared": 1.0,
+        "printed_A16_P0_real_overlap": 0.0,
+        "P0_with_claimed_imaginary_phase_gate": 0.4999999999999999
+      },
+      {
+        "name": "imaginary_global_phase",
+        "overlap_real": 0.0,
+        "overlap_imag": -1.0,
+        "actual_P0": 0.9999999999999996,
+        "correct_P0_absolute_overlap_squared": 1.0,
+        "printed_A16_P0_real_overlap": 0.5,
+        "P0_with_claimed_imaginary_phase_gate": 0.4999999999999999
+      }
+    ],
+    "interpretation": "The shown SWAP circuit measures squared overlap, which is invariant under global phase. Adding a phase to its control cannot retrieve the imaginary overlap. The distinct Hadamard-test route is not invalidated by this check."
+  },
+  "polynomial_moment_normalization": {
+    "locator": "p8 Eq17 and immediately following C_k definition",
+    "example": "d=1, k=1, f(x)=1 on [0,1]",
+    "N": 65536,
+    "discrete_normalized_overlap": 0.8660221001281928,
+    "correct_continuum_overlap": 0.8660254037844386,
+    "printed_continuum_overlap": 0.2886751345948129,
+    "needed_C_k": 1.7320508075688772,
+    "printed_C_k": 0.5773502691896258,
+    "interpretation": "The finite-grid overlap in Eq17 is valid; the printed continuum factor is its reciprocal and predicts a factor3 error for this example."
+  },
+  "lotka_volterra_liouville_sign": {
+    "locator": "p17 Eq41, Eq42, Eq43",
+    "parameters": {
+      "alpha": 0.36787944117144233,
+      "beta": 0.6065306597126334,
+      "gamma": 1.3956124250860895,
+      "delta": 0.8464817248906141
+    },
+    "initial_qp": [
+      0.7,
+      0.3
+    ],
+    "Eq42_characteristic_velocity_qp": [
+      0.08144952294577928,
+      0.1534411048041726
+    ],
+    "Eq43_implied_characteristic_velocity_qp": [
+      -0.08144952294577928,
+      0.1534411048041726
+    ],
+    "correct_rhs_coefficient_partial_q": -0.08144952294577928,
+    "printed_rhs_coefficient_partial_q": 0.08144952294577928,
+    "interpretation": "For divergence-free Hamiltonian flow, partial_t rho= -qdot partial_q rho -pdot partial_p rho. Eq43 reverses only the q coefficient. This is an equation inconsistency; no code is deposited to identify the equation actually evolved."
+  },
+  "localized_gaussian_state_preparation": {
+    "locator": "p23 EqA2 and p18 Figure8 initial Gaussian",
+    "scope": "Continuum Gaussian sufficiently far from boundaries; EqA2 family estimate, not a measured circuit runtime.",
+    "dimension": 2,
+    "sigma": 0.02,
+    "alpha": 1.0,
+    "estimated_success_probability": 0.0012566370614359175,
+    "estimated_expected_repeat_until_success_preparations": 795.7747154594766,
+    "amplitude_amplification_scale_inverse_sqrt_probability": 28.209479177387813,
+    "interpretation": "Theta(1) in EqA2 is correct for fixed f as N grows. It is not uniform in localization width or dimension, and alpha>1 decreases the probability further."
+  },
+  "smooth_periodic_trotter_diagnostic": {
+    "scope": "Independent periodic smooth example satisfying Eq2; not a reproduction of Figure5 or a proof of TheoremIII.4.",
+    "initial_amplitude": "1+.2 sin(2 pi x)+.2 cos(2 pi y), normalized",
+    "c1": ".4+.1 sin(2 pi y)",
+    "c2": ".3+.1 cos(2 pi x)",
+    "rows": [
+      {
+        "N_per_axis": 8,
+        "p": 2,
+        "commutator_on_smooth_state_norm": 0.1946117382230811,
+        "crude_operator_product_bound": 22.755555555555556,
+        "T": 0.2,
+        "L": 32,
+        "Lie_vs_refined_Strang_state_norm": 0.000122407620850194,
+        "reference_1024_vs_2048_Strang_difference": 2.1127351145837648e-10,
+        "reference_norm": 1.0000000000000029
+      },
+      {
+        "N_per_axis": 16,
+        "p": 2,
+        "commutator_on_smooth_state_norm": 0.19897097271320247,
+        "crude_operator_product_bound": 93.26922057526117,
+        "T": 0.2,
+        "L": 32,
+        "Lie_vs_refined_Strang_state_norm": 0.00012517026367988188,
+        "reference_1024_vs_2048_Strang_difference": 2.1910907261087233e-10,
+        "reference_norm": 1.0000000000000038
+      },
+      {
+        "N_per_axis": 32,
+        "p": 2,
+        "commutator_on_smooth_state_norm": 0.19926139478583021,
+        "crude_operator_product_bound": 385.2280950900835,
+        "T": 0.2,
+        "L": 32,
+        "Lie_vs_refined_Strang_state_norm": 0.0001253543060163209,
+        "reference_1024_vs_2048_Strang_difference": 2.1965448156632293e-10,
+        "reference_norm": 1.000000000000004
+      },
+      {
+        "N_per_axis": 64,
+        "p": 2,
+        "commutator_on_smooth_state_norm": 0.19927981781302467,
+        "crude_operator_product_bound": 1540.912380360334,
+        "T": 0.2,
+        "L": 32,
+        "Lie_vs_refined_Strang_state_norm": 0.00012536598106315146,
+        "reference_1024_vs_2048_Strang_difference": 2.1968885509539991e-10,
+        "reference_norm": 1.0000000000000127
+      }
+    ]
+  }
+}

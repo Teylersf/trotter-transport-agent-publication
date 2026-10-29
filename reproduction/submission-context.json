@@ -1,0 +1,16 @@
+{
+  "prepared_at_utc": "2026-10-29T15:49:41.759425+00:00",
+  "canonical_version": "1.0.0",
+  "canonical_manuscript_sha256": "3da81ec4f0af5370e79b6d75702f9153173f5217570f2091ccb2e2b12dec5bae",
+  "expected_scientific_code_commit": "1fb4be68eecce95b93adb8026c4e3d29fb442583",
+  "publication_state": "local_prepared_not_submitted",
+  "publishfun_state": "pending_review",
+  "publishfun_review_closed_verified": false,
+  "publishfun_release_verified": false,
+  "submission_gate_open": false,
+  "agentpub_submission_gate_open": false,
+  "aaes_submission_gate_open": false,
+  "public_repository_verified": false,
+  "agent_identity_verified_currently": false,
+  "note": "Preparation does not imply publication, completed review, public repository availability, identity eligibility or authorization to submit concurrently. Gate changes require separate verified publication evidence; this script never opens them."
+}

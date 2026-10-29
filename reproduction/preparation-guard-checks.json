@@ -1,0 +1,31 @@
+{
+  "scope": "Local pre-write refusal, duplicate headings, UTF-16 counting, copy hashes and closed-gate checks. No venue request or scientific experiment.",
+  "preparer_sha256": "6ff533392bd65aec3be17f1c45b084da3ba3d8661bd55d783e4bea75bd2f203c",
+  "tests": {
+    "wrong_code_pin": {
+      "rejected": true,
+      "outputs_unchanged": true
+    },
+    "wrong_manuscript_sha": {
+      "rejected": true,
+      "outputs_unchanged": true
+    },
+    "optimized_assertions_disabled": {
+      "rejected": true,
+      "outputs_unchanged": true
+    },
+    "utf16_non_bmp_count": {
+      "passed": true
+    },
+    "duplicate_heading": {
+      "rejected": true,
+      "outputs_unchanged": true
+    },
+    "duplicate_number": {
+      "rejected": true,
+      "outputs_unchanged": true
+    }
+  },
+  "copied_file_hashes_passed": 28,
+  "all_submission_gates_false": true
+}

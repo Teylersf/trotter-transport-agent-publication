@@ -1,0 +1,77 @@
+{
+  "source": "arXiv:2508.15691v2",
+  "checks": {
+    "shear_exact_quadrature": true,
+    "shift_sign_counterexample": true,
+    "coefficient_aware_commutator_bound": true,
+    "moment_normalization": true,
+    "controlled_swap_probabilities": true,
+    "lotka_volterra_local_linearization": true,
+    "qft_zero_time_identity_failure": true,
+    "signed_stencil_constant_failure": true,
+    "oriented_maximum_failure": true,
+    "walsh_index_and_axis_budget": true
+  },
+  "qft_two_forward_zero_time_error": 1.224744871391589,
+  "p2_N32_dimensionless_symbol_norm": 1.3714942792651554,
+  "printed_p2_norm_bound": 1.1666666666666667,
+  "corrected_p2_absolute_bound": 1.5,
+  "oriented_maximum_counterexample": {
+    "c1": "1",
+    "c2": "sin(2*pi*x)",
+    "f0": "sin(2*pi*y)",
+    "printed_one_orientation_bound": 0.0,
+    "full_alpha_prime_at_t0": 19.739208802178716
+  },
+  "walsh_local_checks": {
+    "M": 8,
+    "literal_constant_series_values": [
+      2.0,
+      2.0,
+      2.0,
+      2.0,
+      2.0,
+      2.0,
+      2.0,
+      2.0
+    ],
+    "per_axis_target_epsilon": 0.125,
+    "actual_two_axis_error": 0.24999999800000006
+  },
+  "lotka_volterra": {
+    "fixed_q": 0.4999999999999999,
+    "fixed_p": 0.5,
+    "physical_eigenvalues": [
+      [
+        0.0,
+        0.5580351457700471
+      ],
+      [
+        0.0,
+        -0.5580351457700471
+      ]
+    ],
+    "printed_liouville_characteristic_eigenvalues": [
+      [
+        0.5580351457700471,
+        0.0
+      ],
+      [
+        -0.5580351457700471,
+        0.0
+      ]
+    ]
+  },
+  "gaussian_preparation": {
+    "sigma": 0.02,
+    "dimension": 2,
+    "alpha": 1,
+    "asymptotic_success_probability": 0.0012566370614359172,
+    "mean_trials": 795.7747154594767
+  },
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "matplotlib": "3.11.2"
+  }
+}

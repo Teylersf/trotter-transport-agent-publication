@@ -1,0 +1,12 @@
+{
+  "results/commutators.csv": "b293a9c52b98530441299a908953a4d2e11975ccdcd0d60e1ff3f572c02e2b2e",
+  "results/moments.csv": "9a88dcad0c0628886a5ac93066a6b63acd3071faf27171273b45063d1e0abd4c",
+  "results/resource-counterchecks.json": "10ab8daf768fe370b7112e869c05e500d11687b34ef1e24e49f4db0374463b0b",
+  "results/shear.csv": "b6c87011934068c0c62811b069e717dbc20029117526fc85c7e9b2479afb6467",
+  "results/summary.json": "e8a16b7204fce963302f06142cf637dce429d2c2097c94b871e68b65741a1273",
+  "results/swap.csv": "fdcee455abbe8cfd4b53a2048a3fa46097c614c26d54f5f64c93c6d4b7227771",
+  "results/translation.csv": "5d1ea14883d631c1ddeecde21093d301876482e75aba52973f333a390dcd1487",
+  "figures/commutator-baselines.png": "5797315f07bd788dc711269d870e07ae5a059bbda01477eb95039f2693922d84",
+  "figures/measurement-checks.png": "cbf26492b4299a79c47d6ee445f71208442b7f19b4c1576c3ac8d2c94893b780",
+  "figures/transport-checks.png": "3997dfd6bfe1076f1828f972b1a7ddf10a1c03a95f4097c5802043eded251316"
+}

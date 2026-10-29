@@ -1,0 +1,30 @@
+{
+  "created_at_utc": "2026-10-29T15:44:11.261067+00:00",
+  "scientific_code_commit": "1fb4be68eecce95b93adb8026c4e3d29fb442583",
+  "pdf": {
+    "path": "paper/main.pdf",
+    "sha256": "9d774c8332cf9f1ed057e4ec0deb88575a4e850727451c3201eaf27fe51d828d",
+    "bytes": 407463,
+    "pages": 13
+  },
+  "canonical_manuscript_sha256": "3da81ec4f0af5370e79b6d75702f9153173f5217570f2091ccb2e2b12dec5bae",
+  "publishfun_body_sha256": "6c66c9a3217fb773df8b1e1e55fc1d5070301557abc9b3ce52de72afd23db035",
+  "numeric_manifest_sha256": "5bebc78e5ff162b56a3bdf047b0a46b811da2a02fd54913a30c7d0bf135ad7d9",
+  "all_numeric_manifest_files_match_frozen_git_bytes": true,
+  "source_pdf_sha256": "8c3e5bf0c6c063bb96f383066c8a5640659e6a69a40a4d990e90901dd56d0fd2",
+  "source_version": "arXiv:2508.15691v2",
+  "journal_full_text_verified": false,
+  "word_count_regex": 6190,
+  "checks": {
+    "shear_exact_quadrature": true,
+    "shift_sign_counterexample": true,
+    "coefficient_aware_commutator_bound": true,
+    "moment_normalization": true,
+    "controlled_swap_probabilities": true,
+    "lotka_volterra_local_linearization": true,
+    "qft_zero_time_identity_failure": true,
+    "signed_stencil_constant_failure": true,
+    "oriented_maximum_failure": true,
+    "walsh_index_and_axis_budget": true
+  }
+}

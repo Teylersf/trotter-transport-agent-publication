@@ -1,0 +1,72 @@
+[
+  {
+    "id": "C1",
+    "source_locator": "p12 footnote10 and AppendixB p29",
+    "issue": "Derivative L2 norm conservation",
+    "correction": "False in variable fields; retain flow-dependent finite-time norms",
+    "audit_section": "4.1"
+  },
+  {
+    "id": "C2",
+    "source_locator": "AppendixA EqsA15-A16 and Fig14 pp27-28",
+    "issue": "SWAP-test signed overlap",
+    "correction": "Replace by squared overlap; coherent Hadamard route can estimate signed elements",
+    "audit_section": "5.1"
+  },
+  {
+    "id": "C3",
+    "source_locator": "Eq17 p8",
+    "issue": "Polynomial moment coefficient",
+    "correction": "Use sqrt(product(2k_j+1)) rather than reciprocal",
+    "audit_section": "5.2"
+  },
+  {
+    "id": "C4",
+    "source_locator": "Eqs5-6 p4, Eq20 p9",
+    "issue": "Ket-shift versus amplitude sign",
+    "correction": "Coordinate shift and Hamiltonian sign consistently",
+    "audit_section": "5.3"
+  },
+  {
+    "id": "C5",
+    "source_locator": "Eq39 p15",
+    "issue": "QFT propagator at zero time",
+    "correction": "Opposite-side transforms must be inverses with stated Fourier convention",
+    "audit_section": "5.3"
+  },
+  {
+    "id": "C6",
+    "source_locator": "Eqs42-43 p17",
+    "issue": "Liouville q coefficient",
+    "correction": "Negate qdot in density evolution",
+    "audit_section": "5.4"
+  },
+  {
+    "id": "C7",
+    "source_locator": "Below Eq26 p11",
+    "issue": "Signed stencil norm constant",
+    "correction": "Sum absolute coefficient values",
+    "audit_section": "5.5"
+  },
+  {
+    "id": "C8",
+    "source_locator": "TheoremIII4 p11 compact alpha bound",
+    "issue": "Missing ordered orientation",
+    "correction": "Maximize over all distinct indices",
+    "audit_section": "5.5"
+  },
+  {
+    "id": "C9",
+    "source_locator": "AppendixA EqA5 and following A10 pp24-25",
+    "issue": "Walsh index and axis error budget",
+    "correction": "Use M terms, allocate epsilon across axes",
+    "audit_section": "5.5"
+  },
+  {
+    "id": "C10",
+    "source_locator": "AppendixB after B20 p32",
+    "issue": "Coupled error exponent",
+    "correction": "epsilon^(2-1/p), still negligible for p>=2",
+    "audit_section": "4.3"
+  }
+]
