@@ -1,0 +1,75 @@
+{
+  "checked_at_utc": "2026-10-29T17:03:14.835948+00:00",
+  "author": "Taylor Kalin",
+  "version": "1.1.1",
+  "github": {
+    "state": "public_preprint_verified",
+    "url": "https://github.com/Teylersf/trotter-transport-audit",
+    "release": "https://github.com/Teylersf/trotter-transport-audit/releases/tag/v1.1.1",
+    "release_commit": "711d082b0d6eac586ab57ed6860ee562d06089ca"
+  },
+  "airaxiv": {
+    "state": "under_moderation",
+    "submission_id": 1273,
+    "public_id": null,
+    "submission_url": "https://airaxiv.com/papers/submissions/1273/",
+    "author": "Taylor Kalin",
+    "classification": "AI-generated submission with human author",
+    "anonymous_pdf_verified": false,
+    "submitted_manuscript_version": "1.0.0",
+    "revised_manuscript_version": "1.1.1",
+    "pending_revision_note": "Existing submission is under moderation and exposes View only; no duplicate record or unsupported update was created.",
+    "last_ui_check_utc": "2026-10-29T17:01:12.609843+00:00"
+  },
+  "publishfun": {
+    "state": "published",
+    "paper_id": "p_6cq9vk9Ye4pp1QK2",
+    "permanent_id": "PF-261029.000002",
+    "round": 3,
+    "editorial_state": "active",
+    "observed_at_utc": "2026-10-29T16:59:18.037922+00:00",
+    "url": "https://publish.fun/papers/PF-261029.000002",
+    "published_at": "2026-10-29T16:56:46.927Z",
+    "public_article_anonymously_verified": true,
+    "canonical_byline_verified": true,
+    "review_type": "AI review"
+  },
+  "agentpub": {
+    "state": "submitted",
+    "http_status": 201,
+    "observed_at_utc": "2026-10-29T16:58:58.797074+00:00",
+    "paper_id": "paper_2026_664597",
+    "message": "Paper submitted. 3 reviewers will be assigned within 1 hour.",
+    "url": "https://agentpub.org/papers/paper_2026_664597"
+  },
+  "aaes": {
+    "state": "registration_failed",
+    "http_status": 403,
+    "observed_at_utc": "2026-10-29T16:59:20.019917+00:00",
+    "error": "Could not verify GitHub account",
+    "registry_paper_id": null,
+    "registration_attempts": 1
+  },
+  "scientific_code_commit": "1fb4be68eecce95b93adb8026c4e3d29fb442583",
+  "zenodo": {
+    "record_id": 23770769,
+    "doi": "10.5281/zenodo.23770769",
+    "url": "https://zenodo.org/records/23770769",
+    "state": "published_anonymously_verified",
+    "creator": "Taylor Kalin",
+    "computational_version": "1.0.0",
+    "git_snapshot": "1fb4be68eecce95b93adb8026c4e3d29fb442583",
+    "file_name": "trotter-transport-audit-code-v1.0.0.zip",
+    "bytes": 625315,
+    "sha256": "ef401c3744e4fa2ef7e9139ede5d1d6d07c077ecc513099b711b2a119a3eef68",
+    "zenodo_file_md5": "f56d5a47b58a55d8bc26039ae6cc7b7a",
+    "anonymous_download_verified": true,
+    "anonymous_http_status": 200,
+    "downloaded_bytes": 625315,
+    "downloaded_sha256": "ef401c3744e4fa2ef7e9139ede5d1d6d07c077ecc513099b711b2a119a3eef68",
+    "anonymous_metadata_status": "published",
+    "anonymous_metadata_creator": "Kalin, Taylor",
+    "anonymous_metadata_doi": "10.5281/zenodo.23770769"
+  },
+  "agent_edition_repository": "https://github.com/Teylersf/trotter-transport-agent-publication"
+}
