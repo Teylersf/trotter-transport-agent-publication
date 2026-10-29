@@ -5,7 +5,7 @@
 Independent researcher; https://taylorkalin.com
 
 ORCID: 0009-0003-9000-9315; correspondence: teylersf@gmail.com
-Version 1.1.0; 29 October 2026
+Version 1.1.1; 29 October 2026
 
 ## Abstract
 

@@ -1,7 +1,7 @@
 {
-  "canonical_version": "1.1.0",
+  "canonical_version": "1.1.1",
   "scientific_code_commit": "1fb4be68eecce95b93adb8026c4e3d29fb442583",
-  "canonical_manuscript_sha256": "2d07d8c001b67c2daa57c2b4fd3463441120daf0c58d990c2868e5fd093119db",
+  "canonical_manuscript_sha256": "e824ae77a51fa4adf47e1fb6d1749b4f7bfccf694c80b81a6fcde7d26a8b97bf",
   "preparer_sha256": "43abdd17062ff190fdfe04cb6d90b8421757b0a25defe6d5ecd0ee6302e1555e",
   "schema_snapshot_sha256": "04a9801ba164fa6bdfc5cd9d9099e67de4e826e4da3e0be02d5ffba98a673651",
   "scientific_sections": 8,
@@ -19,7 +19,7 @@
     "Conclusion",
     "Appendix"
   ],
-  "math_segments_in_scientific_body": 308,
+  "math_segments_in_scientific_body": 309,
   "numbered_equations": 16,
   "figures": 3,
   "reference_records": 11,
@@ -46,8 +46,8 @@
       "utf16_code_units": 3326
     },
     "Methodology": {
-      "unicode_codepoints": 11817,
-      "utf16_code_units": 11817
+      "unicode_codepoints": 12143,
+      "utf16_code_units": 12143
     },
     "Results": {
       "unicode_codepoints": 16846,
@@ -58,8 +58,8 @@
       "utf16_code_units": 8565
     },
     "Limitations": {
-      "unicode_codepoints": 5313,
-      "utf16_code_units": 5313
+      "unicode_codepoints": 5990,
+      "utf16_code_units": 5990
     },
     "Conclusion": {
       "unicode_codepoints": 1174,
@@ -70,7 +70,7 @@
       "utf16_code_units": 20238
     }
   },
-  "body_regex_words": 10579,
+  "body_regex_words": 10741,
   "abstract_regex_words": 181,
   "all_scientific_paragraphs_exact_after_allowed_adapter_reversal": true,
   "all_complete_proofs_preserved_by_full_section_equality": true,
@@ -85,7 +85,7 @@
     },
     {
       "heading": "3. Methodology and evidence boundary",
-      "sha256": "25df08ed44cc6f180f52050675c5891f699f401be1a2de9486e0cd6afce865f2"
+      "sha256": "c801925fe44a16f00c84399d474d8842b684a7427c2ebffb2527f27dbfe0a86c"
     },
     {
       "heading": "4. Results: regularity and finite-grid resource bounds",
@@ -101,7 +101,7 @@
     },
     {
       "heading": "7. Limitations, reproducibility and disclosures",
-      "sha256": "31e70adc9ab4f0f8b5c2fd1cbf57e2cdb900408ff2bcc72f7bcd139d3654da51"
+      "sha256": "aa6f0aa69821e0409daff4dbafdf3e6458aa22a78f92bededd4e669bc08697da"
     },
     {
       "heading": "8. Conclusion",
@@ -117,9 +117,9 @@
     }
   ],
   "protected_block_counts": {
-    "math": 308,
+    "math": 309,
     "tables": 4,
-    "quotations": 11,
+    "quotations": 12,
     "code_fences": 0,
     "proof_markers": 0
   },
@@ -154,7 +154,7 @@
       "canonical_path": "data/reproducibility.json",
       "copy_path": "reproduction/canonical/data/reproducibility.json",
       "bytes": 1473,
-      "sha256": "db9f6e6060b9065834ed9ad22c2682dd68615784302214c89441df29a2a27fa5"
+      "sha256": "810fea1328735873b2794f220b87e9e42468dace15f95980e55ee1bf82e080f8"
     },
     {
       "canonical_path": "data/zenodo-code-archive.json",
@@ -165,8 +165,8 @@
     {
       "canonical_path": "experiments/build_paper.py",
       "copy_path": "reproduction/canonical/experiments/build_paper.py",
-      "bytes": 7642,
-      "sha256": "f3931390d79ee0b00557befee48241d8e939904b42344c2febdb1811852021e5"
+      "bytes": 7891,
+      "sha256": "8cb9dfa8ebd802e6be0142cf3894650587c1de937a3ca7e2b3f6f99f9f863570"
     },
     {
       "canonical_path": "experiments/reproduce.py",
@@ -213,20 +213,20 @@
     {
       "canonical_path": "paper/closing.md",
       "copy_path": "reproduction/canonical/paper/closing.md",
-      "bytes": 9704,
-      "sha256": "f69895fee2b460777e6dc147898c8d899dbb31e0f1955c6f6e5581266f7742af"
+      "bytes": 10381,
+      "sha256": "ce0c1d0e6a0792738603ec43a842e5728be65cc10c1cb97b6e89d95f7f424398"
     },
     {
       "canonical_path": "paper/core.md",
       "copy_path": "reproduction/canonical/paper/core.md",
       "bytes": 28260,
-      "sha256": "2e36ad9b61dc05501f228522cd8d81d1b527eb31b11989724aacce430aae0322"
+      "sha256": "b8eb72a89a351abb7ebc48aa65fc6a61abf956dff43a3c0f3c4c526f964f2e46"
     },
     {
       "canonical_path": "paper/latex/body.tex",
       "copy_path": "reproduction/canonical/paper/latex/body.tex",
-      "bytes": 83095,
-      "sha256": "f45536ea9ee6bd6bbfca8d88467758d24a726a272ae7af57ae5a7fc6fc1c2e4a"
+      "bytes": 84175,
+      "sha256": "e88a08c8a0f5bed31e0cdd018c85c841fa4d8edfe0bec551f99baf7d2baeea9d"
     },
     {
       "canonical_path": "paper/latex/images/commutator-baselines.png",
@@ -255,8 +255,8 @@
     {
       "canonical_path": "paper/manuscript.md",
       "copy_path": "reproduction/canonical/paper/manuscript.md",
-      "bytes": 75179,
-      "sha256": "2d07d8c001b67c2daa57c2b4fd3463441120daf0c58d990c2868e5fd093119db"
+      "bytes": 76182,
+      "sha256": "e824ae77a51fa4adf47e1fb6d1749b4f7bfccf694c80b81a6fcde7d26a8b97bf"
     },
     {
       "canonical_path": "paper/resource-discussion.md",
@@ -267,8 +267,8 @@
     {
       "canonical_path": "paper/revision-journal-concordance.md",
       "copy_path": "reproduction/canonical/paper/revision-journal-concordance.md",
-      "bytes": 8320,
-      "sha256": "0d08e28f1f8490b4eb5eba05ae8774e979678bdc3dc4d92258a51e4fce511894"
+      "bytes": 8646,
+      "sha256": "dc78e0f67ab9cebe0ad23c6021ebb04c7c7f3d21b3d2dc47872a5dd79f117d32"
     },
     {
       "canonical_path": "paper/revision-numerical-provenance.md",
@@ -285,8 +285,8 @@
     {
       "canonical_path": "README.md",
       "copy_path": "reproduction/canonical/README.md",
-      "bytes": 4167,
-      "sha256": "950998632322961161e03deccf3e0ec6f8e10d8474bbb8b3f1defeb5b3be9a01"
+      "bytes": 4229,
+      "sha256": "7b0189a2dec07bbbb3e3dd86809c032f230385d9e6c4c7bd7fb402fa934f2516"
     },
     {
       "canonical_path": "requirements.txt",
@@ -346,7 +346,7 @@
       "canonical_path": "SOURCE.md",
       "copy_path": "reproduction/canonical/SOURCE.md",
       "bytes": 4599,
-      "sha256": "f3210b077b20175a9a961df8e32cf2206fc1e68df7a78a9558329af5b9d7cfe2"
+      "sha256": "ba55db3b09ae36aa9615e8aa0e25fcc7047121e88be0ef1a0388022ab7c95d59"
     }
   ],
   "submission_gate_open": false,

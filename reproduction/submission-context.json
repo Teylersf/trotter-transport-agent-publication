@@ -1,7 +1,7 @@
 {
-  "prepared_at_utc": "2026-10-29T16:23:10.696376+00:00",
-  "canonical_version": "1.1.0",
-  "canonical_manuscript_sha256": "2d07d8c001b67c2daa57c2b4fd3463441120daf0c58d990c2868e5fd093119db",
+  "prepared_at_utc": "2026-10-29T16:55:45.738015+00:00",
+  "canonical_version": "1.1.1",
+  "canonical_manuscript_sha256": "e824ae77a51fa4adf47e1fb6d1749b4f7bfccf694c80b81a6fcde7d26a8b97bf",
   "expected_scientific_code_commit": "1fb4be68eecce95b93adb8026c4e3d29fb442583",
   "publication_state": "local_prepared_not_submitted",
   "publishfun_state": "pending_review",

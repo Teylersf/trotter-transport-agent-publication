@@ -2,7 +2,7 @@
 
 **Author: Taylor Kalin** · [taylorkalin.com](https://taylorkalin.com) · [ORCID](https://orcid.org/0009-0003-9000-9315)
 
-Version 1.1.0 compares arXiv:2508.15691v2 with the directly obtained *Quantum Science and Technology* 11, 025015 (2026) journal article. All ten registered correction groups persist in the checked journal PDF. Exact counterexamples, finite-grid bounds and reproducible numerical checks distinguish printed equation failures from implementation uncertainties and resource qualifications. The journal's added Gaussian-width, alternative-simulation-cost and boundary discussions are credited. The frozen [v1.0.0 release](https://github.com/Teylersf/trotter-transport-audit/releases/tag/v1.0.0) preserves the original preprint-only audit.
+Version 1.1.1 compares arXiv:2508.15691v2 with the directly obtained *Quantum Science and Technology* 11, 025015 (2026) journal article. All ten registered correction groups persist in the checked journal PDF. Exact counterexamples, finite-grid bounds and reproducible numerical checks distinguish printed equation failures from implementation uncertainties and resource qualifications. The journal's added Gaussian-width, alternative-simulation-cost and boundary discussions are credited. The frozen [v1.0.0 release](https://github.com/Teylersf/trotter-transport-audit/releases/tag/v1.0.0) preserves the original preprint-only audit.
 
 - [Read the full paper](paper/manuscript.md) or [typeset PDF](paper/main.pdf).
 - [Source provenance](SOURCE.md), [calculated results](results/summary.json), [independent numerical evidence](results/resource-counterchecks.json).
@@ -25,7 +25,7 @@ The first script emits independent measurement, hardware-magnitude and periodic-
 
 `experiments/build_paper.py` assembles the Markdown and LaTeX body using Pandoc. It inserts the journal concordance as Section 3.1 and includes the source-statement and numerical-provenance appendices when their input files exist. Compile `paper/latex/main.tex` with a LaTeX engine providing its listed packages, including `braket`. The self-contained LaTeX project includes its figure copies. Document assembly does not rerun or alter the frozen numerical results. Release provenance pins the scientific snapshot `1fb4be68eecce95b93adb8026c4e3d29fb442583`; its numerical manifest excludes itself.
 
-That exact code/data snapshot is archived on [Zenodo, DOI 10.5281/zenodo.23770769](https://doi.org/10.5281/zenodo.23770769), computational version 1.0.0. The expanded manuscript version 1.1.0 retains those numerical results.
+That exact code/data snapshot is archived on [Zenodo, DOI 10.5281/zenodo.23770769](https://doi.org/10.5281/zenodo.23770769), computational version 1.0.0. The expanded manuscript version 1.1.1 retains those numerical results and supplies direct public DataCite and resolver verification.
 
 ## Authorship, support and licenses
 

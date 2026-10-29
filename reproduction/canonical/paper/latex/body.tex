@@ -8,7 +8,7 @@ Independent researcher; \url{https://taylorkalin.com}
 
 ORCID: 0009-0003-9000-9315; correspondence:
 \href{mailto:teylersf@gmail.com}{\nolinkurl{teylersf@gmail.com}} Version
-1.1.0; 29 October 2026
+1.1.1; 29 October 2026
 
 \subsection{Abstract}\label{abstract}
 
@@ -222,10 +222,11 @@ concordance}\label{journal-edition-and-statement-concordance}
 
 The version comparison now includes the published article {[}2{]} as
 well as the previously audited arXiv:2508.15691v2 {[}1{]}. The official
-publisher PDF was obtained through an unauthenticated request to
-\href{https://iopscience.iop.org/article/10.1088/2058-9565/ae488e/pdf}{the
-publisher's PDF endpoint} initiated on 29 October 2026 at 15:57:49 UTC.
-It has 2,014,929 bytes and SHA-256
+publisher PDF was obtained through an unauthenticated request initiated
+on 29 October 2026 at 15:57:49 UTC; it is available through the PDF
+download action on the
+\href{https://doi.org/10.1088/2058-9565/ae488e}{article's DOI landing
+page}. It has 2,014,929 bytes and SHA-256
 \nolinkurl{1b8f24ed2bcd4979526977581fc795f80d90a6efeacfbe28e65339cf8b4803e1}.
 Its 34 PDF pages comprise an unnumbered publisher cover followed by
 printed article pages 1-33. The article identifies its publication as
@@ -312,20 +313,29 @@ C10 & p.33, paragraph after Eq. (B20) & p.30 (31), paragraph after Eq.
 refinement gives \(2-1/p\) at fixed final time. \\
 \end{longtable}
 
-For C1, journal footnote 13 states that the ``\(L^2\) norm of any
-derivative of \(f\) is constant over time.'' The opening of Appendix B
-repeats the homogeneous derivative-equation argument. The same smooth
-periodic shear counterexample therefore applies to the journal
-statement. This does not remove the need to keep the time-dependent
-derivative maxima already present in Theorem 3.4, nor does replacing the
-conservation claim alone prove the entire vector-norm theorem.
+For C1, the first sentence of journal footnote 13, printed p.11 (PDF
+p.12), states verbatim {[}2{]}:
 
-For C2, journal Eq. (58) and Fig.13 retain the controlled-SWAP circuit
-while Eq. (59) prints
+\begin{quote}
+The \(L^2\) norm of any derivative of \(f\) is constant over time, equal
+to its initial value at time \(t=0\).
+\end{quote}
+
+The remainder of the footnote refers to Appendix B. The opening of that
+appendix, printed p.26 (PDF p.27) immediately after Eq. (65), repeats
+the homogeneous derivative-equation argument. The same smooth periodic
+shear counterexample therefore applies to the journal statement. This
+does not remove the need to keep the time-dependent derivative maxima
+already present in Theorem 3.4, nor does replacing the conservation
+claim alone prove the entire vector-norm theorem.
+
+For C2, journal Eq. (58), printed p.24 (PDF p.25), and Fig.13, printed
+p.25 (PDF p.26), retain the controlled-SWAP circuit. Immediately after
+Eq. (58), journal Eq. (59), printed p.24 (PDF p.25), reads {[}2{]}:
 
 \[
-P(0)=\frac{1+\operatorname{Re}\langle\phi|\psi\rangle}{2},\qquad
-P(1)=\frac{1-\operatorname{Re}\langle\phi|\psi\rangle}{2}.
+P(0)=\frac{1+\Re(\langle\phi|\psi\rangle)}{2},\qquad
+P(1)=\frac{1-\Re(\langle\phi|\psi\rangle)}{2}.
 \]
 
 The circuit instead returns the absolute square of the overlap in these
@@ -971,8 +981,8 @@ circuit access, and desired physical observable in one statement.
 CSV/JSON outputs and newly created figures are available in the
 accompanying public repository,
 \url{https://github.com/Teylersf/trotter-transport-audit} . Run
-\nolinkurl{python\ experiments/reproduce.py} and
-\nolinkurl{python\ experiments/resource_counterchecks.py} after installing
+\texttt{python\ experiments/reproduce.py} and
+\texttt{python\ experiments/resource\_counterchecks.py} after installing
 the listed requirements. The first regenerates its figures and records
 the software environment; the second emits the independent
 hardware-magnitude and periodic-evolution checks. The original
@@ -991,12 +1001,26 @@ The same exact Git snapshot is deposited as a public code/data archive
 on Zenodo {[}11{]}, DOI
 \href{https://doi.org/10.5281/zenodo.23770769}{10.5281/zenodo.23770769},
 computational version 1.0.0. The archive contains the verified numerical
-programs and outputs used in both manuscript versions. Its ZIP is
-625,315 bytes with SHA-256
+programs and outputs used in all manuscript versions. Its ZIP is 625,315
+bytes with SHA-256
 \nolinkurl{ef401c3744e4fa2ef7e9139ede5d1d6d07c077ecc513099b711b2a119a3eef68}.
 The journal comparison and expanded provenance text in manuscript
-version 1.1.0 do not change that computational snapshot. Archive
-licenses distinguish MIT code from CC BY 4.0 text and original figures.
+versions 1.1.0 and 1.1.1 do not change that computational snapshot.
+Archive licenses distinguish MIT code from CC BY 4.0 text and original
+figures.
+
+\textbf{Public archive verification.} Unauthenticated requests on 29
+October 2026 returned HTTP 200 from the DOI resolver, redirecting to
+\href{https://zenodo.org/records/23770769}{Zenodo record 23770769}, and
+from the
+\href{https://api.datacite.org/dois/10.5281/zenodo.23770769}{DataCite
+registry record}, which reports this DOI as \nolinkurl{findable} with the
+matching title and creator. The
+\href{https://zenodo.org/api/records/23770769}{Zenodo public API record}
+reports the deposit as published. Its anonymous ZIP download matched the
+byte count and SHA-256 above. Machine-readable verification is retained
+in \nolinkurl{submissions/zenodo-doi-verification.json} and
+\nolinkurl{data/zenodo-code-archive.json}.
 
 \textbf{Authorship and assistance.} Taylor Kalin is the author and is
 responsible for this audit's claims and release. AI tools assisted with

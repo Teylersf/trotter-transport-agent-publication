@@ -120,8 +120,15 @@ pandoc = shutil.which('pandoc') or r'C:\Users\theri\AppData\Local\Pandoc\pandoc.
 subprocess.run([pandoc,str(paper/'manuscript.md'),'-f','markdown+tex_math_dollars+raw_tex+autolink_bare_uris',
                 '-t','latex','-o',str(paper/'latex/body.tex')],check=True)
 body = (paper/'latex/body.tex').read_text(encoding='utf-8').replace('../figures/','images/')
-body = re.sub(r'\\texttt\{([^{}]*)\}',
-              lambda m:r'\nolinkurl{'+m[1].replace(r'\_','_')+'}',body)
+def wrap_code_identifier(match):
+    # Pandoc escapes spaces in code spans as ``\ ``. Preserve its texttt
+    # command spans so the escape is rendered as a space, not a URL backslash.
+    if ' ' in match[1]:
+        return match[0]
+    return r'\nolinkurl{'+match[1].replace(r'\_','_')+'}'
+
+
+body = re.sub(r'\\texttt\{([^{}]*)\}', wrap_code_identifier, body)
 # The concordance has short ID/status cells and longer location/description cells.
 table_header = re.search(r'(\\begin\{longtable\}\[\]\{@\{\}\n)(.*?)(@\{\}\}\n\\toprule)',
                          body, flags=re.S)

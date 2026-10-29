@@ -1,4 +1,4 @@
-# Reproduction and preparation of version 1.1.0
+# Reproduction and preparation of version 1.1.1
 
 The numerical scientific snapshot is `1fb4be68eecce95b93adb8026c4e3d29fb442583`. Exact current manuscript, concordance and copy hashes are in `adapter-checks.json`; updated manuscript/provenance packaging is distinct from unchanged numerical results.
 

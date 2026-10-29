@@ -5,7 +5,7 @@
 Independent researcher; https://taylorkalin.com
 
 ORCID: 0009-0003-9000-9315; correspondence: teylersf@gmail.com
-Version 1.1.0; 29 October 2026
+Version 1.1.1; 29 October 2026
 
 ## Abstract
 
@@ -61,7 +61,7 @@ The repository supplies source provenance, a correction registry, numerical outp
 
 ### 3.1. Journal edition and statement concordance
 
-The version comparison now includes the published article [2] as well as the previously audited arXiv:2508.15691v2 [1]. The official publisher PDF was obtained through an unauthenticated request to [the publisher's PDF endpoint](https://iopscience.iop.org/article/10.1088/2058-9565/ae488e/pdf) initiated on 29 October 2026 at 15:57:49 UTC. It has 2,014,929 bytes and SHA-256 `1b8f24ed2bcd4979526977581fc795f80d90a6efeacfbe28e65339cf8b4803e1`. Its 34 PDF pages comprise an unnumbered publisher cover followed by printed article pages 1-33. The article identifies its publication as *Quantum Science and Technology* **11**, 025015, DOI [10.1088/2058-9565/ae488e](https://doi.org/10.1088/2058-9565/ae488e), published 3 March 2026 under CC BY 4.0. The title, four authors, DOI, dates and license were checked on its first printed page.
+The version comparison now includes the published article [2] as well as the previously audited arXiv:2508.15691v2 [1]. The official publisher PDF was obtained through an unauthenticated request initiated on 29 October 2026 at 15:57:49 UTC; it is available through the PDF download action on the [article's DOI landing page](https://doi.org/10.1088/2058-9565/ae488e). It has 2,014,929 bytes and SHA-256 `1b8f24ed2bcd4979526977581fc795f80d90a6efeacfbe28e65339cf8b4803e1`. Its 34 PDF pages comprise an unnumbered publisher cover followed by printed article pages 1-33. The article identifies its publication as *Quantum Science and Technology* **11**, 025015, DOI [10.1088/2058-9565/ae488e](https://doi.org/10.1088/2058-9565/ae488e), published 3 March 2026 under CC BY 4.0. The title, four authors, DOI, dates and license were checked on its first printed page.
 
 Version 1 of this audit accurately recorded the access challenges encountered in its available sessions and restricted its conclusions to the supplied preprint. The subsequent successful retrieval makes a direct journal comparison possible. The comparison below uses the downloaded PDF, extracted text and direct inspection of the relevant rendered formulas. Its conclusions do not rely on the publisher's open-access label or search-index excerpts. The public machine-readable record is `data/journal-comparison.json`.
 
@@ -80,13 +80,17 @@ The table retains the correction IDs used in the original registry. An arXiv pag
 | C9 | p.24, Eq. (A5); p.25, Eq. (A10) and following size choice | p.21 (22), Eq. (48); p.22 (23), Eq. (53) and following size choice | Persists | The inclusive Walsh endpoint and the per-axis rather than shared error allocation both remain. |
 | C10 | p.33, paragraph after Eq. (B20) | p.30 (31), paragraph after Eq. (83) | Persists | The printed exponent is $2-1/(2p)$; balanced refinement gives $2-1/p$ at fixed final time. |
 
-For C1, journal footnote 13 states that the "$L^2$ norm of any derivative of $f$ is constant over time." The opening of Appendix B repeats the homogeneous derivative-equation argument. The same smooth periodic shear counterexample therefore applies to the journal statement. This does not remove the need to keep the time-dependent derivative maxima already present in Theorem 3.4, nor does replacing the conservation claim alone prove the entire vector-norm theorem.
+For C1, the first sentence of journal footnote 13, printed p.11 (PDF p.12), states verbatim [2]:
 
-For C2, journal Eq. (58) and Fig.13 retain the controlled-SWAP circuit while Eq. (59) prints
+> The $L^2$ norm of any derivative of $f$ is constant over time, equal to its initial value at time $t=0$.
+
+The remainder of the footnote refers to Appendix B. The opening of that appendix, printed p.26 (PDF p.27) immediately after Eq. (65), repeats the homogeneous derivative-equation argument. The same smooth periodic shear counterexample therefore applies to the journal statement. This does not remove the need to keep the time-dependent derivative maxima already present in Theorem 3.4, nor does replacing the conservation claim alone prove the entire vector-norm theorem.
+
+For C2, journal Eq. (58), printed p.24 (PDF p.25), and Fig.13, printed p.25 (PDF p.26), retain the controlled-SWAP circuit. Immediately after Eq. (58), journal Eq. (59), printed p.24 (PDF p.25), reads [2]:
 
 $$
-P(0)=\frac{1+\operatorname{Re}\langle\phi|\psi\rangle}{2},\qquad
-P(1)=\frac{1-\operatorname{Re}\langle\phi|\psi\rangle}{2}.
+P(0)=\frac{1+\Re(\langle\phi|\psi\rangle)}{2},\qquad
+P(1)=\frac{1-\Re(\langle\phi|\psi\rangle)}{2}.
 $$
 
 The circuit instead returns the absolute square of the overlap in these expressions. Its phase-gate modification also cannot recover the imaginary overlap. The journal's separate Hadamard-test construction remains a possible coherent route to signed matrix elements. For C3, the definition following journal Eq. (17) still gives $C_{\vec k}=1/\sqrt{\prod_j(2k_j+1)}$; the normalization in the same equation requires its reciprocal. The finite-grid checks in the audit apply unchanged.
@@ -325,7 +329,9 @@ The constructive operator estimate is a bound, not an optimized complexity theor
 
 The immutable scientific code and numerical-data snapshot is commit `1fb4be68eecce95b93adb8026c4e3d29fb442583` ([view snapshot](https://github.com/Teylersf/trotter-transport-audit/tree/1fb4be68eecce95b93adb8026c4e3d29fb442583)). Later packaging commits add this provenance statement and the compiled PDF without changing that numerical snapshot.
 
-The same exact Git snapshot is deposited as a public code/data archive on Zenodo [11], DOI [10.5281/zenodo.23770769](https://doi.org/10.5281/zenodo.23770769), computational version 1.0.0. The archive contains the verified numerical programs and outputs used in both manuscript versions. Its ZIP is 625,315 bytes with SHA-256 `ef401c3744e4fa2ef7e9139ede5d1d6d07c077ecc513099b711b2a119a3eef68`. The journal comparison and expanded provenance text in manuscript version 1.1.0 do not change that computational snapshot. Archive licenses distinguish MIT code from CC BY 4.0 text and original figures.
+The same exact Git snapshot is deposited as a public code/data archive on Zenodo [11], DOI [10.5281/zenodo.23770769](https://doi.org/10.5281/zenodo.23770769), computational version 1.0.0. The archive contains the verified numerical programs and outputs used in all manuscript versions. Its ZIP is 625,315 bytes with SHA-256 `ef401c3744e4fa2ef7e9139ede5d1d6d07c077ecc513099b711b2a119a3eef68`. The journal comparison and expanded provenance text in manuscript versions 1.1.0 and 1.1.1 do not change that computational snapshot. Archive licenses distinguish MIT code from CC BY 4.0 text and original figures.
+
+**Public archive verification.** Unauthenticated requests on 29 October 2026 returned HTTP 200 from the DOI resolver, redirecting to [Zenodo record 23770769](https://zenodo.org/records/23770769), and from the [DataCite registry record](https://api.datacite.org/dois/10.5281/zenodo.23770769), which reports this DOI as `findable` with the matching title and creator. The [Zenodo public API record](https://zenodo.org/api/records/23770769) reports the deposit as published. Its anonymous ZIP download matched the byte count and SHA-256 above. Machine-readable verification is retained in `submissions/zenodo-doi-verification.json` and `data/zenodo-code-archive.json`.
 
 **Authorship and assistance.** Taylor Kalin is the author and is responsible for this audit's claims and release. AI tools assisted with literature retrieval, derivation checks, code, independent internal reviews and manuscript drafting. These checks are not represented as independent human peer review. Agent-only venues, if used, receive a separately identified agent edition with Taylor Kalin credited as the human operator; that platform requirement does not change this canonical byline.
 

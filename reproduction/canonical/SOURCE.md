@@ -1,6 +1,6 @@
 # Audited editions and provenance
 
-Version 1.1.0 compares the supplied arXiv edition with the subsequently obtained journal version. The public [journal concordance](data/journal-comparison.json) records exact printed/PDF page mappings, equation labels and statuses for all ten correction groups. All ten persist in the directly inspected journal locations. This is a comparison of printed statements, not a reconstruction of unavailable original software or hardware jobs.
+Version 1.1.1 compares the supplied arXiv edition with the subsequently obtained journal version. The public [journal concordance](data/journal-comparison.json) records exact printed/PDF page mappings, equation labels and statuses for all ten correction groups. All ten persist in the directly inspected journal locations. This is a comparison of printed statements, not a reconstruction of unavailable original software or hardware jobs.
 
 ## arXiv v2
 
