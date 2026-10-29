@@ -1,6 +1,6 @@
 ## 7. Limitations, reproducibility and disclosures
 
-This audit tests the exact supplied edition. The journal version and its supplements remain unverified. The original source archive does not identify the code used to make the transport plots or provide complete hardware execution records. We consequently cannot determine which displayed mistakes were merely typesetting or convention errors and which, if any, entered a calculation. We do not infer fabrication, misconduct, intent or the failure of the authors' underlying approach from these observations.
+This audit tests the exact supplied arXiv edition and the directly obtained published journal PDF. All ten registered correction groups persist in the latter, but we did not obtain executable original simulation code or complete hardware execution records. We consequently cannot determine which displayed mistakes were merely typesetting or convention errors and which, if any, entered a calculation. The journal's data-availability statement does not by itself identify the equation actually evolved by a particular program. We do not infer fabrication, misconduct, intent or the failure of the authors' underlying approach from these observations.
 
 We have not reproduced the full two-dimensional figures from the original paper. Their captions and nearby equations use different centered-coordinate conventions; some Gaussian centers are outside the displayed unit-square domain unless an unstated recentering is supplied. The coefficients linear in coordinates also need treatment at a periodic seam. These are specification gaps, not evidence that a plotted result is false. Our periodic diagnostic avoids those ambiguities by defining smooth periodic coefficients and its initial function explicitly. Original hardware outcomes were not rerun; only their claimed deterministic discretization errors were independently checked.
 
@@ -10,6 +10,8 @@ The constructive operator estimate is a bound, not an optimized complexity theor
 
 The immutable scientific code and numerical-data snapshot is commit `1fb4be68eecce95b93adb8026c4e3d29fb442583` ([view snapshot](https://github.com/Teylersf/trotter-transport-audit/tree/1fb4be68eecce95b93adb8026c4e3d29fb442583)). Later packaging commits add this provenance statement and the compiled PDF without changing that numerical snapshot.
 
+The same exact Git snapshot is deposited as a public code/data archive on Zenodo [11], DOI [10.5281/zenodo.23770769](https://doi.org/10.5281/zenodo.23770769), computational version 1.0.0. The archive contains the verified numerical programs and outputs used in both manuscript versions. Its ZIP is 625,315 bytes with SHA-256 `ef401c3744e4fa2ef7e9139ede5d1d6d07c077ecc513099b711b2a119a3eef68`. The journal comparison and expanded provenance text in manuscript version 1.1.0 do not change that computational snapshot. Archive licenses distinguish MIT code from CC BY 4.0 text and original figures.
+
 **Authorship and assistance.** Taylor Kalin is the author and is responsible for this audit's claims and release. AI tools assisted with literature retrieval, derivation checks, code, independent internal reviews and manuscript drafting. These checks are not represented as independent human peer review. Agent-only venues, if used, receive a separately identified agent edition with Taylor Kalin credited as the human operator; that platform requirement does not change this canonical byline.
 
 **Funding and interests.** The author self-funded this study and reports no outside funding. No competing interests have been reported for this study. No original author, institution or publisher endorsed this audit. The manuscript and original figures are licensed CC BY 4.0; original audit code is MIT licensed. Third-party works retain their own licenses.
@@ -18,7 +20,7 @@ The immutable scientific code and numerical-data snapshot is commit `1fb4be68eec
 
 ## 8. Conclusion
 
-The supplied arXiv v2 contains concrete mathematical errors requiring correction. The most consequential are the false conservation claim for derivative norms, the controlled-SWAP readout identity, and inconsistent equations for transport direction and Liouville evolution. Several normalization and index errors can be repaired locally. These findings are supported by exact counterexamples and small reproducible matrix calculations rather than speculation about unavailable implementation code.
+The supplied arXiv v2 and the directly inspected journal edition contain the registered mathematical errors requiring correction. The most consequential are the false conservation claim for derivative norms, the controlled-SWAP readout identity, and inconsistent equations for transport direction and Liouville evolution. Several normalization and index errors can be repaired locally. These findings are supported by exact counterexamples, direct version comparison and small reproducible matrix calculations rather than speculation about unavailable implementation code.
 
 The central smooth-state motivation remains useful. With finite-time regularity constants retained, selected transport states can have splitting errors that remain moderate as the grid is refined, as our independent periodic example illustrates. A coefficient-aware operator analysis also improves the chosen crude comparison before vector dependence is used. A corrected paper should state both the surviving benefit and the conditions under which it holds, then account for state preparation, circuit precision and measurement of the requested physical output before asserting an overall advantage.
 
@@ -26,7 +28,7 @@ The central smooth-state motivation remains useful. With finite-time regularity 
 
 [1] J. Zylberman, T. Fredon, N. F. Loureiro and F. Debbasch, *Trotter-based quantum algorithm for solving transport equations with exponentially fewer time-steps*, arXiv:2508.15691v2 (25 August 2025). https://arxiv.org/abs/2508.15691v2 ; versioned PDF: https://arxiv.org/pdf/2508.15691v2 ; source: https://arxiv.org/src/2508.15691v2 . **Audited edition.**
 
-[2] J. Zylberman, T. Fredon, N. F. Loureiro and F. Debbasch, same title, *Quantum Science and Technology* **11**, 025015 (2026). https://doi.org/10.1088/2058-9565/ae488e . **Existence and bibliographic metadata verified; full journal text not audited.**
+[2] J. Zylberman, T. Fredon, N. F. Loureiro and F. Debbasch, same title, *Quantum Science and Technology* **11**, 025015 (2026). https://doi.org/10.1088/2058-9565/ae488e . **Published journal PDF directly audited in this revision.**
 
 [3] D. An, D. Fang and L. Lin, *Time-dependent unbounded Hamiltonian simulation with vector norm scaling*, *Quantum* **5**, 459 (2021). https://doi.org/10.22331/q-2021-05-26-459 ; https://arxiv.org/abs/2012.13105v3 .
 
@@ -39,3 +41,9 @@ The central smooth-state motivation remains useful. With finite-time regularity 
 [7] J. Welch, D. Greenbaum, S. Mostame and A. Aspuru-Guzik, *Efficient quantum circuits for diagonal unitaries without ancillas*, *New Journal of Physics* **16**, 033040 (2014). https://doi.org/10.1088/1367-2630/16/3/033040 ; https://arxiv.org/abs/1306.3991 .
 
 [8] J. Zylberman, U. Nzongani, A. Simonetto and F. Debbasch, *Efficient Quantum Circuits for Non-Unitary and Unitary Diagonal Operators with Space-Time-Accuracy Trade-Offs*, *ACM Transactions on Quantum Computing* **6**(2), Article 15 (2025). https://doi.org/10.1145/3718348 ; https://arxiv.org/abs/2404.02819 .
+
+[9] D. Burgarth, P. Facchi, A. Hahn, M. Johnsson and K. Yuasa, *Strong Error Bounds for Trotter & Strang-Splittings and Their Implications for Quantum Chemistry*, *Physical Review Research* **6**, 043155 (2024). https://doi.org/10.1103/PhysRevResearch.6.043155 ; https://arxiv.org/abs/2312.08044v2 .
+
+[10] J. Zylberman, T. Fredon, N. F. Loureiro and F. Debbasch, *Quantum algorithm for anisotropic diffusion and convection equations with vector norm scaling*, arXiv:2603.08799v1 (9 March 2026). https://arxiv.org/abs/2603.08799v1 . The record identifies a separate proceedings version in *Quantum Engineering Sciences and Technologies for Industry and Services (QUEST-IS 2025)*, pp.255-263, Springer, https://doi.org/10.1007/978-3-032-13855-2_23 . That separate proceedings text is not audited here.
+
+[11] T. Kalin, *Code and numerical data for Corrections and resource bounds for the Trotter quantum transport algorithm*, computational version 1.0.0, Zenodo (2026). https://doi.org/10.5281/zenodo.23770769 . Exact scientific code/data snapshot `1fb4be68eecce95b93adb8026c4e3d29fb442583`.

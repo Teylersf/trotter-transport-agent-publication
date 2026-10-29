@@ -1,10 +1,14 @@
 {
-  "canonical_version": "1.0.0",
+  "canonical_version": "1.1.0",
   "scientific_code_commit": "1fb4be68eecce95b93adb8026c4e3d29fb442583",
-  "canonical_manuscript_sha256": "3da81ec4f0af5370e79b6d75702f9153173f5217570f2091ccb2e2b12dec5bae",
-  "preparer_sha256": "6ff533392bd65aec3be17f1c45b084da3ba3d8661bd55d783e4bea75bd2f203c",
+  "canonical_manuscript_sha256": "2d07d8c001b67c2daa57c2b4fd3463441120daf0c58d990c2868e5fd093119db",
+  "preparer_sha256": "43abdd17062ff190fdfe04cb6d90b8421757b0a25defe6d5ecd0ee6302e1555e",
   "schema_snapshot_sha256": "04a9801ba164fa6bdfc5cd9d9099e67de4e826e4da3e0be02d5ffba98a673651",
   "scientific_sections": 8,
+  "appendices": [
+    "Appendix A. Attributed source statements and equation reproductions",
+    "Appendix B. Numerical provenance and reproducible constructions"
+  ],
   "platform_sections": [
     "Introduction",
     "Related Work",
@@ -12,55 +16,114 @@
     "Results",
     "Discussion",
     "Limitations",
-    "Conclusion"
+    "Conclusion",
+    "Appendix"
   ],
-  "math_segments_in_scientific_body": 191,
+  "math_segments_in_scientific_body": 308,
   "numbered_equations": 16,
   "figures": 3,
-  "reference_records": 8,
+  "reference_records": 11,
   "reference_source_blocks": [
     "[1] J. Zylberman, T. Fredon, N. F. Loureiro and F. Debbasch, *Trotter-based quantum algorithm for solving transport equations with exponentially fewer time-steps*, arXiv:2508.15691v2 (25 August 2025). https://arxiv.org/abs/2508.15691v2 ; versioned PDF: https://arxiv.org/pdf/2508.15691v2 ; source: https://arxiv.org/src/2508.15691v2 . **Audited edition.**",
-    "[2] J. Zylberman, T. Fredon, N. F. Loureiro and F. Debbasch, same title, *Quantum Science and Technology* **11**, 025015 (2026). https://doi.org/10.1088/2058-9565/ae488e . **Existence and bibliographic metadata verified; full journal text not audited.**",
+    "[2] J. Zylberman, T. Fredon, N. F. Loureiro and F. Debbasch, same title, *Quantum Science and Technology* **11**, 025015 (2026). https://doi.org/10.1088/2058-9565/ae488e . **Published journal PDF directly audited in this revision.**",
     "[3] D. An, D. Fang and L. Lin, *Time-dependent unbounded Hamiltonian simulation with vector norm scaling*, *Quantum* **5**, 459 (2021). https://doi.org/10.22331/q-2021-05-26-459 ; https://arxiv.org/abs/2012.13105v3 .",
     "[4] H. Buhrman, R. Cleve, J. Watrous and R. de Wolf, *Quantum Fingerprinting*, *Physical Review Letters* **87**, 167902 (2001). https://doi.org/10.1103/PhysRevLett.87.167902 ; https://arxiv.org/abs/quant-ph/0102001v1 . The controlled-SWAP probability is derived in Section 2 of the versioned preprint.",
     "[5] G. Brassard, P. Hoyer, M. Mosca and A. Tapp, *Quantum Amplitude Amplification and Estimation*, Contemporary Mathematics **305**, 53-74 (2002); preprint (2000). https://arxiv.org/abs/quant-ph/0005055 .",
     "[6] A. M. Childs, Y. Su, M. C. Tran, N. Wiebe and S. Zhu, *Theory of Trotter Error with Commutator Scaling*, *Physical Review X* **11**, 011020 (2021). https://doi.org/10.1103/PhysRevX.11.011020 ; https://arxiv.org/abs/1912.08854 . The distinction between commutator-aware and crude product-norm bounds provides context for Section 4.2.",
     "[7] J. Welch, D. Greenbaum, S. Mostame and A. Aspuru-Guzik, *Efficient quantum circuits for diagonal unitaries without ancillas*, *New Journal of Physics* **16**, 033040 (2014). https://doi.org/10.1088/1367-2630/16/3/033040 ; https://arxiv.org/abs/1306.3991 .",
-    "[8] J. Zylberman, U. Nzongani, A. Simonetto and F. Debbasch, *Efficient Quantum Circuits for Non-Unitary and Unitary Diagonal Operators with Space-Time-Accuracy Trade-Offs*, *ACM Transactions on Quantum Computing* **6**(2), Article 15 (2025). https://doi.org/10.1145/3718348 ; https://arxiv.org/abs/2404.02819 ."
+    "[8] J. Zylberman, U. Nzongani, A. Simonetto and F. Debbasch, *Efficient Quantum Circuits for Non-Unitary and Unitary Diagonal Operators with Space-Time-Accuracy Trade-Offs*, *ACM Transactions on Quantum Computing* **6**(2), Article 15 (2025). https://doi.org/10.1145/3718348 ; https://arxiv.org/abs/2404.02819 .",
+    "[9] D. Burgarth, P. Facchi, A. Hahn, M. Johnsson and K. Yuasa, *Strong Error Bounds for Trotter & Strang-Splittings and Their Implications for Quantum Chemistry*, *Physical Review Research* **6**, 043155 (2024). https://doi.org/10.1103/PhysRevResearch.6.043155 ; https://arxiv.org/abs/2312.08044v2 .",
+    "[10] J. Zylberman, T. Fredon, N. F. Loureiro and F. Debbasch, *Quantum algorithm for anisotropic diffusion and convection equations with vector norm scaling*, arXiv:2603.08799v1 (9 March 2026). https://arxiv.org/abs/2603.08799v1 . The record identifies a separate proceedings version in *Quantum Engineering Sciences and Technologies for Industry and Services (QUEST-IS 2025)*, pp.255-263, Springer, https://doi.org/10.1007/978-3-032-13855-2_23 . That separate proceedings text is not audited here.",
+    "[11] T. Kalin, *Code and numerical data for Corrections and resource bounds for the Trotter quantum transport algorithm*, computational version 1.0.0, Zenodo (2026). https://doi.org/10.5281/zenodo.23770769 . Exact scientific code/data snapshot `1fb4be68eecce95b93adb8026c4e3d29fb442583`."
   ],
   "section_character_counts": {
     "Introduction": {
-      "unicode_codepoints": 2907,
-      "utf16_code_units": 2907
+      "unicode_codepoints": 3073,
+      "utf16_code_units": 3073
     },
     "Related Work": {
-      "unicode_codepoints": 2391,
-      "utf16_code_units": 2391
+      "unicode_codepoints": 3326,
+      "utf16_code_units": 3326
     },
     "Methodology": {
-      "unicode_codepoints": 2961,
-      "utf16_code_units": 2961
+      "unicode_codepoints": 11817,
+      "utf16_code_units": 11817
     },
     "Results": {
-      "unicode_codepoints": 15944,
-      "utf16_code_units": 15944
+      "unicode_codepoints": 16846,
+      "utf16_code_units": 16846
     },
     "Discussion": {
-      "unicode_codepoints": 8150,
-      "utf16_code_units": 8150
+      "unicode_codepoints": 8565,
+      "utf16_code_units": 8565
     },
     "Limitations": {
-      "unicode_codepoints": 4574,
-      "utf16_code_units": 4574
+      "unicode_codepoints": 5313,
+      "utf16_code_units": 5313
     },
     "Conclusion": {
-      "unicode_codepoints": 1099,
-      "utf16_code_units": 1099
+      "unicode_codepoints": 1174,
+      "utf16_code_units": 1174
+    },
+    "Appendix": {
+      "unicode_codepoints": 20238,
+      "utf16_code_units": 20238
     }
   },
-  "body_regex_words": 5655,
-  "abstract_regex_words": 180,
+  "body_regex_words": 10579,
+  "abstract_regex_words": 181,
   "all_scientific_paragraphs_exact_after_allowed_adapter_reversal": true,
+  "all_complete_proofs_preserved_by_full_section_equality": true,
+  "full_scientific_section_bodies": [
+    {
+      "heading": "1. Introduction",
+      "sha256": "0996bb364c02ab32139ce3a0bd3b7b1329d7be442e0ccfd0de3e9352f7e2bca4"
+    },
+    {
+      "heading": "2. Related work and mathematical setting",
+      "sha256": "5c3703a784a806e5207fd9918d029fd3703c6387064cf08ee05be4654db33b62"
+    },
+    {
+      "heading": "3. Methodology and evidence boundary",
+      "sha256": "25df08ed44cc6f180f52050675c5891f699f401be1a2de9486e0cd6afce865f2"
+    },
+    {
+      "heading": "4. Results: regularity and finite-grid resource bounds",
+      "sha256": "ac26fce8fcce1a600875bb56509d051e9f3784e66d0744a393107ae2ea3df484"
+    },
+    {
+      "heading": "5. Results: measurement and equation corrections",
+      "sha256": "86696a426b14ddb1c5b8482dfe5b8722790069fdf2640d207f373323dc648cad"
+    },
+    {
+      "heading": "6. Discussion: resources and numerical evidence",
+      "sha256": "9214b42969286a88c0b7108bfd93027c5fb5c990ace51ba3b8ace28512138df6"
+    },
+    {
+      "heading": "7. Limitations, reproducibility and disclosures",
+      "sha256": "31e70adc9ab4f0f8b5c2fd1cbf57e2cdb900408ff2bcc72f7bcd139d3654da51"
+    },
+    {
+      "heading": "8. Conclusion",
+      "sha256": "c317716288617c1cd909978c4e2402562710bc35c3006a7b4371000979c252a6"
+    },
+    {
+      "heading": "Appendix A. Attributed source statements and equation reproductions",
+      "sha256": "cffa5e3172236c63f7bd1632e212d78d5589abb4f72d55f15293d597ed01383c"
+    },
+    {
+      "heading": "Appendix B. Numerical provenance and reproducible constructions",
+      "sha256": "ec4d49003b1c51a72344a4a27616f8977b3707c4da7f224da45203d4ebd24f0b"
+    }
+  ],
+  "protected_block_counts": {
+    "math": 308,
+    "tables": 4,
+    "quotations": 11,
+    "code_fences": 0,
+    "proof_markers": 0
+  },
+  "tables_quotations_code_and_proof_markers_exact": true,
   "ordered_math_segments_exact": true,
   "abstract_exact": true,
   "figure_captions_and_order_exact": true,
@@ -70,7 +133,8 @@
     "abstract_word_limit": true,
     "reference_minimum": true,
     "body_word_range": true,
-    "required_sections_and_order": true
+    "required_sections_and_order": true,
+    "all_sections_allowed": true
   },
   "all_guideline_checks_passed": true,
   "copied_scientific_files": [
@@ -78,19 +142,31 @@
       "canonical_path": "data/correction-registry.json",
       "copy_path": "reproduction/canonical/data/correction-registry.json",
       "bytes": 2171,
-      "sha256": "8f73c127ebaea76e0d0047451ab7a4d9bd0dfcdd9efd8c4970213e8e56f5c369"
+      "sha256": "5345485998487a0ea1be1f139907961418790e9dc172e8b8500ab3070e7d358c"
+    },
+    {
+      "canonical_path": "data/journal-comparison.json",
+      "copy_path": "reproduction/canonical/data/journal-comparison.json",
+      "bytes": 14181,
+      "sha256": "ff67d58cc9de3e6a94f30d6e93c692af1043d5ddb47677b2be01d8ea380cd9cc"
     },
     {
       "canonical_path": "data/reproducibility.json",
       "copy_path": "reproduction/canonical/data/reproducibility.json",
-      "bytes": 1285,
-      "sha256": "a8740e9044d09111eee206a486e519648f90c4dc0397fa9195fc62bd4dcdb9c2"
+      "bytes": 1473,
+      "sha256": "db9f6e6060b9065834ed9ad22c2682dd68615784302214c89441df29a2a27fa5"
+    },
+    {
+      "canonical_path": "data/zenodo-code-archive.json",
+      "copy_path": "reproduction/canonical/data/zenodo-code-archive.json",
+      "bytes": 838,
+      "sha256": "e791f6716a56d2cafa740cdfb5df8169faf2ec504b6e7f764e650bbec0fa103a"
     },
     {
       "canonical_path": "experiments/build_paper.py",
       "copy_path": "reproduction/canonical/experiments/build_paper.py",
-      "bytes": 1519,
-      "sha256": "d7729778fb2e3e0a6f7c6bf653ff244ca0d717090549e656b20d1a9728c14fff"
+      "bytes": 7642,
+      "sha256": "f3931390d79ee0b00557befee48241d8e939904b42344c2febdb1811852021e5"
     },
     {
       "canonical_path": "experiments/reproduce.py",
@@ -129,22 +205,28 @@
       "sha256": "91a88df8a9fdb4dd941e50679485576218bebf63bb8bc974db60e05cd4cd96db"
     },
     {
+      "canonical_path": "LICENSE-MANUSCRIPT",
+      "copy_path": "reproduction/canonical/LICENSE-MANUSCRIPT",
+      "bytes": 321,
+      "sha256": "607a0491f9452320d9097b06f258e2f2acd2f0f3f785eb628dea4251169a65a1"
+    },
+    {
       "canonical_path": "paper/closing.md",
       "copy_path": "reproduction/canonical/paper/closing.md",
-      "bytes": 7821,
-      "sha256": "2bbcf919b49d242079fb0dbacbb3aec9ecafc8b211c640ad88dc99496ecaa2b1"
+      "bytes": 9704,
+      "sha256": "f69895fee2b460777e6dc147898c8d899dbb31e0f1955c6f6e5581266f7742af"
     },
     {
       "canonical_path": "paper/core.md",
       "copy_path": "reproduction/canonical/paper/core.md",
-      "bytes": 25649,
-      "sha256": "11964240c12cd620786c96d484d9bcb0ac18df2511ee828136f9bb5743b90e5c"
+      "bytes": 28260,
+      "sha256": "2e36ad9b61dc05501f228522cd8d81d1b527eb31b11989724aacce430aae0322"
     },
     {
       "canonical_path": "paper/latex/body.tex",
       "copy_path": "reproduction/canonical/paper/latex/body.tex",
-      "bytes": 43858,
-      "sha256": "0bb3ccf573a94b4cba68c241186f46cbe8664c70a2b97c5eb7c7bbe5990cb7e9"
+      "bytes": 83095,
+      "sha256": "f45536ea9ee6bd6bbfca8d88467758d24a726a272ae7af57ae5a7fc6fc1c2e4a"
     },
     {
       "canonical_path": "paper/latex/images/commutator-baselines.png",
@@ -167,26 +249,44 @@
     {
       "canonical_path": "paper/latex/main.tex",
       "copy_path": "reproduction/canonical/paper/latex/main.tex",
-      "bytes": 873,
-      "sha256": "91f6cbbd62ee1ab30e9c1ae14e484869bfb3850a118dced3b007b5d31d00a2ad"
+      "bytes": 966,
+      "sha256": "ac3c318624bb5d3a935c63b989a219fcaabd7c1825805c5bfb6b4f7f882d5ddd"
     },
     {
       "canonical_path": "paper/manuscript.md",
       "copy_path": "reproduction/canonical/paper/manuscript.md",
-      "bytes": 41679,
-      "sha256": "3da81ec4f0af5370e79b6d75702f9153173f5217570f2091ccb2e2b12dec5bae"
+      "bytes": 75179,
+      "sha256": "2d07d8c001b67c2daa57c2b4fd3463441120daf0c58d990c2868e5fd093119db"
     },
     {
       "canonical_path": "paper/resource-discussion.md",
       "copy_path": "reproduction/canonical/paper/resource-discussion.md",
-      "bytes": 8216,
-      "sha256": "62fdc4c00f7662f21ce12b06b28d52316ce82481e9184c141b3032007e6d97fa"
+      "bytes": 8629,
+      "sha256": "cbf57296f54b2ece11f0977873b5c3022bf10d4107eba13a96105db5192008ad"
+    },
+    {
+      "canonical_path": "paper/revision-journal-concordance.md",
+      "copy_path": "reproduction/canonical/paper/revision-journal-concordance.md",
+      "bytes": 8320,
+      "sha256": "0d08e28f1f8490b4eb5eba05ae8774e979678bdc3dc4d92258a51e4fce511894"
+    },
+    {
+      "canonical_path": "paper/revision-numerical-provenance.md",
+      "copy_path": "reproduction/canonical/paper/revision-numerical-provenance.md",
+      "bytes": 6680,
+      "sha256": "2df34b8c2b8800d9863cd084bcc9960aff813c0551de8929d79e4fee091ef50a"
+    },
+    {
+      "canonical_path": "paper/revision-source-quotes.md",
+      "copy_path": "reproduction/canonical/paper/revision-source-quotes.md",
+      "bytes": 14339,
+      "sha256": "b8cd3e1d1c73e00541949aab0e0130d7251c0ca483ab17c5d0dddf9aec80c7de"
     },
     {
       "canonical_path": "README.md",
       "copy_path": "reproduction/canonical/README.md",
-      "bytes": 2690,
-      "sha256": "5d3fb42edc3f7fa534ad9932cd9a236042f5399aabf0afad12a1bf860a014ac0"
+      "bytes": 4167,
+      "sha256": "950998632322961161e03deccf3e0ec6f8e10d8474bbb8b3f1defeb5b3be9a01"
     },
     {
       "canonical_path": "requirements.txt",
@@ -241,8 +341,21 @@
       "copy_path": "reproduction/canonical/results/translation.csv",
       "bytes": 216,
       "sha256": "5d1ea14883d631c1ddeecde21093d301876482e75aba52973f333a390dcd1487"
+    },
+    {
+      "canonical_path": "SOURCE.md",
+      "copy_path": "reproduction/canonical/SOURCE.md",
+      "bytes": 4599,
+      "sha256": "f3210b077b20175a9a961df8e32cf2206fc1e68df7a78a9558329af5b9d7cfe2"
     }
   ],
   "submission_gate_open": false,
-  "note": "Original scientific paragraphs/equations are never condensed or padded. Platform references are structured from the complete canonical records. Figure link paths differ by declared route only. submitted_at is not registration evidence."
+  "note": "Original scientific paragraphs/equations are never condensed or padded. Platform references are structured from the complete canonical records. Figure link paths differ by declared route only. submitted_at is not registration evidence.",
+  "journal_concordance": {
+    "path": "data/journal-comparison.json",
+    "sha256": "ff67d58cc9de3e6a94f30d6e93c692af1043d5ddb47677b2be01d8ea380cd9cc",
+    "specified_groups_audited": 10,
+    "persistent_groups": 10,
+    "complete_journal_audit_claimed": false
+  }
 }

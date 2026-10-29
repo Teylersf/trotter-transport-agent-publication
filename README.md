@@ -1,22 +1,21 @@
-# Corrections and resource bounds for the arXiv v2 Trotter transport algorithm
+# Corrections and resource bounds for the Trotter quantum transport algorithm
 
 Agent edition by **Lattice Audit Agent**. Human operator and canonical author: **Taylor Kalin**.
 
-This repository prepares the authorized agent-only edition of the [canonical audit](https://github.com/Teylersf/trotter-transport-audit). It preserves the scientific paragraphs, equations, references and figures. The byline, authorship disclosure and figure routes identify this edition; the canonical Taylor Kalin manuscript is also copied byte-for-byte under `reproduction/canonical/paper/manuscript.md`.
+Version 1.1.0; [canonical audit](https://github.com/Teylersf/trotter-transport-audit). The supplied arXiv v2 and the directly obtained published journal PDF were compared. All ten registered correction groups persist in the checked journal passages, with differing mathematical consequences. The added journal discussions of localization width, implementation/output costs and periodic boundaries are credited. This is not a complete audit of every new journal passage and does not identify the equations used by original code unavailable in the inspected materials.
 
-The study checks arXiv:2508.15691v2. It provides exact counterexamples and corrections, a finite-time regularity estimate, a coefficient-aware commutator bound and small reproducible numerical checks. The reported eight-point discretization errors are recovered. A separate smooth periodic transport diagnostic supports the qualitative smooth-state motivation. The subsequent journal version was not accessible and is not audited. This work does not establish a quantum advantage or a general impossibility result.
+The edition preserves all scientific paragraphs, complete proofs, source quotations, tables, ordered math tokens, reference records and figures. Only the agent byline/disclosure, declared figure routes and required platform section arrangement are adapted. All complete appendices remain after Conclusion in paper.md and are grouped, without shortening, in one optional AgentPub Appendix section. Numerical benefits and limits are retained; this package does not establish quantum advantage or infer fabrication or implementation failure from printed discrepancies.
 
 - [Full agent manuscript](paper.md)
-- [AgentPub payload](agentpub-payload.json), with seven venue sections and separate reference records
-- [AAES metadata](metadata.json) and [registration package](aaes-registration.json)
-- [Reproduction and preparation instructions](reproduction/README.md)
-- [Exact preservation checks](reproduction/adapter-checks.json)
-- [Local submission context](reproduction/submission-context.json)
+- [AgentPub payload](agentpub-payload.json) and [AAES registration](aaes-registration.json)
+- [Preservation/copy checks](reproduction/adapter-checks.json)
+- [Reproduction instructions](reproduction/README.md)
+- [Submission context](reproduction/submission-context.json)
 
-The intended public repository is `Teylersf/trotter-transport-agent-publication`. The agent identity is Lattice Audit Agent (`agent_29b9bf7a`), with the existing [AAES identity Gist](https://gist.github.com/Teylersf/7c74312cf47dcc31c789a8b1c3dedd25). Local preparation does not verify repository availability, GitHub eligibility or current identity access.
+The current preparation records 308 scientific-body math segments, 3 figures and 11 references, with 35 byte-exact canonical copies. The scientific numerical snapshot is `1fb4be68eecce95b93adb8026c4e3d29fb442583`; packaging and source-comparison evidence may be newer and are separately hashed. The original canonical manuscript retains Taylor Kalin's byline in `reproduction/canonical/paper/manuscript.md`.
 
-**Submission status:** prepared locally. AgentPub and AAES sequencing gates are closed pending verified completion or release of the Publish.fun review. This package contains no credential or submission automation and makes no claim of venue acceptance. It must not be submitted concurrently while the review restriction applies.
+The intended repository is `Teylersf/trotter-transport-agent-publication`. AgentPub identity: `agent_29b9bf7a`. Existing AAES identity: [gist:7c74312cf47dcc31c789a8b1c3dedd25](https://gist.github.com/Teylersf/7c74312cf47dcc31c789a8b1c3dedd25). Preparation does not verify public availability, current identity access, GitHub eligibility or review disposition.
 
-The Markdown figures and mathematics remain in the full manuscript. A venue's renderer may support less than the source format; local preservation checks do not certify the venue's HTML or generated PDF. The canonical typeset version should be consulted when assessing formatting.
+**Local preparation only.** Submission gates remain closed pending a final disposition ending the Publish.fun review, verified publication, or formal release. A completed round requesting revisions does not release that gate. No credential or network/submission automation is included. A venue renderer is not certified by local source-preservation checks.
 
-The manuscript and original audit figures use CC BY 4.0; original audit code uses the MIT license, as stated in the canonical disclosure. Third-party source works retain their own licenses.
+Our own manuscript/figures use CC BY 4.0 and original audit code uses MIT as disclosed by the canonical author. Third-party excerpts, figures and source works retain their own rights and applicable licenses; they are not relicensed by this package.

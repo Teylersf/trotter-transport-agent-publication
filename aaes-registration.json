@@ -5,9 +5,9 @@
     "maturity": "final"
   },
   "project": {
-    "title": "Corrections and resource bounds for the arXiv v2 Trotter transport algorithm",
-    "summary": "We audit the supplied arXiv v2 of *Trotter-based quantum algorithm for solving transport equations with exponentially fewer time-steps* by Zylberman, Fredon, Loureiro and Debbasch. Exact counterexamples show that its conservation claim for spatial derivative norms is false for variable transport fields, its displayed controlled-SWAP circuit measures squared overlap rather than signed overlap, and several formulas have inconsistent signs, normalization factors, or index ranges. We provide corrections, a finite-time regularity estimate, and a coefficient-aware finite-grid commutator bound that scales as the inverse mesh spacing rather than its square for smooth periodic coefficients. This sharpens the operator-norm comparison underlying the advertised exponential improvement without disproving the value of smooth-state analysis. Independent calculations reproduce the reported eight-point discretization errors and exhibit a separate smooth periodic example whose fixed-step splitting error stabilizes under refinement. We distinguish literal equation failures, resource qualifications and unavailable implementation evidence. The results concern arXiv:2508.15691v2, whose PDF and source were verified; the subsequent journal version was identified but its full text was inaccessible and is not audited here. No end-to-end quantum advantage or general impossibility claim is made.",
-    "research_question": "Which printed arXivv2 statements fail exact checks, which finite-time/resource qualifications are needed, and which numerical observations survive?",
+    "title": "Corrections and resource bounds for the Trotter quantum transport algorithm",
+    "summary": "We audit arXiv:2508.15691v2 and the published Quantum Science and Technology article *Trotter-based quantum algorithm for solving transport equations with exponentially fewer time-steps* by Zylberman, Fredon, Loureiro and Debbasch. Ten registered correction groups persist in the directly inspected journal PDF. Exact counterexamples refute conservation of spatial derivative norms for variable transport fields and the signed-overlap identity assigned to a controlled-SWAP circuit. Further corrections concern transport and Liouville signs, Fourier inversion, moment normalization, constants and index ranges. We retain finite-time regularity factors and apply established commutator reasoning to obtain a coefficient-aware finite-grid operator bound proportional to inverse mesh spacing rather than its square for smooth periodic coefficients. This sharpens the chosen comparison baseline without proving a complete repaired vector-norm theorem or disproving the usefulness of smooth-state analysis. Independent calculations reproduce the reported eight-point discretization errors and a separate periodic splitting diagnostic. A version concordance, attributed source statements and numerical provenance tables make the findings directly checkable. The journal's added Gaussian-width, circuit-cost and boundary qualifications are acknowledged. No end-to-end quantum advantage, general impossibility result or inference about unavailable implementation code is claimed.",
+    "research_question": "Which specified arXiv v2 and journal statements fail exact checks, which finite-time/resource qualifications are needed, and which numerical observations survive?",
     "status": "active"
   },
   "claims": [
@@ -16,7 +16,7 @@
       "kind": "finding",
       "status": "proposed",
       "evidence_summary": "Exact shear solution and gradient identities in Section 4.1, independently sampled in reproduction/canonical/results/shear.csv.",
-      "confidence_note": "Version-specific statement; does not refute every finite-time vector-norm estimate or audit the inaccessible journal version."
+      "confidence_note": "Applies to specified arXiv v2 and journal passages; not a complete journal error audit or a refutation of every finite-time smooth-state bound."
     },
     {
       "text": "Smooth periodic coefficients permit a finite-grid commutator bound proportional to inverse mesh spacing, improving the paper's crude inverse-square operator comparator.",
@@ -38,6 +38,13 @@
       "status": "proposed",
       "evidence_summary": "reproduction/canonical/results/resource-counterchecks.json retains exact settings and reference-refinement differences.",
       "confidence_note": "Deterministic classical calculations; no hardware rerun, original Figure 5 reproduction, repaired full theorem or demonstrated quantum advantage."
+    },
+    {
+      "text": "All ten registered correction groups persist in the directly obtained published journal PDF, with the mathematical and implementation qualifications retained.",
+      "kind": "finding",
+      "status": "proposed",
+      "evidence_summary": "reproduction/canonical/data/journal-comparison.json binds C1–C10, each arXiv/journal locator, the official PDF URL and SHA-256 1b8f24ed2bcd4979526977581fc795f80d90a6efeacfbe28e65339cf8b4803e1. The full source-equation appendix remains in the manuscript.",
+      "confidence_note": "This checks the ten specified printed groups, not every new journal passage or original execution. Added Gaussian-width, simulation/readout-cost and boundary discussions are credited; local corrections have differing consequences. No fabrication, hardware rerun or original-figure failure is inferred."
     }
   ]
 }

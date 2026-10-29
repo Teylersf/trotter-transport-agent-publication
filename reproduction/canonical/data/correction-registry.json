@@ -64,7 +64,7 @@
   },
   {
     "id": "C10",
-    "source_locator": "AppendixB after B20 p32",
+    "source_locator": "AppendixB after B20 p33",
     "issue": "Coupled error exponent",
     "correction": "epsilon^(2-1/p), still negligible for p>=2",
     "audit_section": "4.3"

@@ -1,0 +1,20 @@
+{
+  "record_id": 23770769,
+  "doi": "10.5281/zenodo.23770769",
+  "url": "https://zenodo.org/records/23770769",
+  "state": "published_anonymously_verified",
+  "creator": "Taylor Kalin",
+  "computational_version": "1.0.0",
+  "git_snapshot": "1fb4be68eecce95b93adb8026c4e3d29fb442583",
+  "file_name": "trotter-transport-audit-code-v1.0.0.zip",
+  "bytes": 625315,
+  "sha256": "ef401c3744e4fa2ef7e9139ede5d1d6d07c077ecc513099b711b2a119a3eef68",
+  "zenodo_file_md5": "f56d5a47b58a55d8bc26039ae6cc7b7a",
+  "anonymous_download_verified": true,
+  "anonymous_http_status": 200,
+  "downloaded_bytes": 625315,
+  "downloaded_sha256": "ef401c3744e4fa2ef7e9139ede5d1d6d07c077ecc513099b711b2a119a3eef68",
+  "anonymous_metadata_status": "published",
+  "anonymous_metadata_creator": "Kalin, Taylor",
+  "anonymous_metadata_doi": "10.5281/zenodo.23770769"
+}

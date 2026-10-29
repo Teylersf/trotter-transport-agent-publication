@@ -1,7 +1,19 @@
 {
-  "scope": "Local pre-write refusal, duplicate headings, UTF-16 counting, copy hashes and closed-gate checks. No venue request or scientific experiment.",
-  "preparer_sha256": "6ff533392bd65aec3be17f1c45b084da3ba3d8661bd55d783e4bea75bd2f203c",
-  "tests": {
+  "scope": "Current v1.1.0 package: independent complete-section/source-equivalence, delimiter walk, byte-copy and pre-write refusal checks. No external venue request or scientific simulation.",
+  "canonical_version": "1.1.0",
+  "canonical_manuscript_sha256": "2d07d8c001b67c2daa57c2b4fd3463441120daf0c58d990c2868e5fd093119db",
+  "scientific_code_commit": "1fb4be68eecce95b93adb8026c4e3d29fb442583",
+  "preparer_sha256": "43abdd17062ff190fdfe04cb6d90b8421757b0a25defe6d5ecd0ee6302e1555e",
+  "full_scientific_sections_exact_after_declared_adapter_reversal": true,
+  "full_proofs_and_quotes_covered_by_exact_section_bodies": true,
+  "ordered_math_segments_independent_delimiter_walk": 308,
+  "numbered_equations": 16,
+  "tables": 4,
+  "quotation_blocks": 11,
+  "figures": 3,
+  "reference_records": 11,
+  "copied_file_hashes_passed": 35,
+  "prewrite_negative_guards": {
     "wrong_code_pin": {
       "rejected": true,
       "outputs_unchanged": true
@@ -13,19 +25,51 @@
     "optimized_assertions_disabled": {
       "rejected": true,
       "outputs_unchanged": true
-    },
-    "utf16_non_bmp_count": {
-      "passed": true
-    },
-    "duplicate_heading": {
-      "rejected": true,
-      "outputs_unchanged": true
-    },
-    "duplicate_number": {
-      "rejected": true,
-      "outputs_unchanged": true
     }
   },
-  "copied_file_hashes_passed": 28,
-  "all_submission_gates_false": true
+  "all_submission_gates_false": true,
+  "section_character_counts": {
+    "Introduction": {
+      "unicode_codepoints": 3073,
+      "utf16_code_units": 3073
+    },
+    "Related Work": {
+      "unicode_codepoints": 3326,
+      "utf16_code_units": 3326
+    },
+    "Methodology": {
+      "unicode_codepoints": 11817,
+      "utf16_code_units": 11817
+    },
+    "Results": {
+      "unicode_codepoints": 16846,
+      "utf16_code_units": 16846
+    },
+    "Discussion": {
+      "unicode_codepoints": 8565,
+      "utf16_code_units": 8565
+    },
+    "Limitations": {
+      "unicode_codepoints": 5313,
+      "utf16_code_units": 5313
+    },
+    "Conclusion": {
+      "unicode_codepoints": 1174,
+      "utf16_code_units": 1174
+    },
+    "Appendix": {
+      "unicode_codepoints": 20238,
+      "utf16_code_units": 20238
+    }
+  },
+  "output_hashes": {
+    "paper.md": "a9a3ab72cc52abe195dd2226568edb20c6596749be553ae2436d7b3048117484",
+    "agentpub-payload.json": "548cf0f6412348bed5093abcf76125de9f5974eb22e65934131b1de91abe2a4b",
+    "metadata.json": "4e238b10d993cd0afd355c9edf0b6a74deaab1acf2e406cf0ca1ca0c2648239e",
+    "aaes-registration.json": "9edeb198850f3da71419bd87e42cf1b531a429f1128e0988cd9475f574bd547a",
+    "README.md": "ec7829db510e0a3117e98cf24de28e41b3f1ec7140db8d3b881e8486d92cb9aa",
+    "reproduction/README.md": "de396e39cb26e4651fead940cbbc3189ebbf32b22be0d548e0e18fc26196176e",
+    "reproduction/adapter-checks.json": "0250c88c0f4e90131078115dbbcc39318cfdbab1182d45db5f58be853a16a856",
+    "reproduction/submission-context.json": "e9031cd866d4629c1804d88efcc30832221d62828976cf8d66f1cf8adc60e2bd"
+  }
 }

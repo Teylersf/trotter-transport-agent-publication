@@ -1,0 +1,403 @@
+{
+  "schema_version": 1,
+  "checked_at_utc": "2026-10-29T16:05:51.227256+00:00",
+  "purpose": "Public-safe concordance of the ten audited arXiv v2 statements against the subsequently obtained journal version of record.",
+  "arxiv_edition": {
+    "id": "2508.15691v2",
+    "url": "https://arxiv.org/abs/2508.15691v2",
+    "pdf_url": "https://arxiv.org/pdf/2508.15691v2",
+    "sha256": "8c3e5bf0c6c063bb96f383066c8a5640659e6a69a40a4d990e90901dd56d0fd2",
+    "bytes": 4798118,
+    "pdf_pages": 34,
+    "version_date": "2025-08-25"
+  },
+  "journal_edition": {
+    "doi": "10.1088/2058-9565/ae488e",
+    "landing_url": "https://doi.org/10.1088/2058-9565/ae488e",
+    "official_pdf_url": "https://iopscience.iop.org/article/10.1088/2058-9565/ae488e/pdf",
+    "title": "Trotter-based quantum algorithm for solving transport equations with exponentially fewer time-steps",
+    "authors": [
+      "Julien Zylberman",
+      "Thibault Fredon",
+      "Nuno F. Loureiro",
+      "Fabrice Debbasch"
+    ],
+    "journal": "Quantum Science and Technology",
+    "volume": 11,
+    "article": "025015",
+    "publication_date": "2026-03-03",
+    "received_date": "2025-10-02",
+    "revised_date": "2026-02-02",
+    "accepted_date": "2026-02-20",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "request_started_at_utc": "2026-10-29T15:57:49.754341+00:00",
+    "http_status": 200,
+    "content_type": "application/pdf;charset=UTF-8",
+    "bytes": 2014929,
+    "sha256": "1b8f24ed2bcd4979526977581fc795f80d90a6efeacfbe28e65339cf8b4803e1",
+    "pdf_pages": 34,
+    "printed_article_pages": "1-33",
+    "page_numbering": "PDF page 1 is an unnumbered publisher cover; printed article page n is PDF page n+1."
+  },
+  "method": {
+    "source_evidence": "Actual publisher PDF, extracted text and direct inspection of relevant rendered equations; not an inference from open-access metadata or indexed snippets.",
+    "integrity": "Strict PDF parse and all 34 page objects checked. Source hash identifies the exact downloaded copy.",
+    "review_scope": "All ten specified findings compared; this concordance does not claim a complete error audit of every new journal passage.",
+    "review_type": "AI-assisted internal source and mathematical checks; not independent human peer review.",
+    "implementation_boundary": "Persistence of a printed statement does not establish which equations were used in unavailable implementation code or how the original figures were computed."
+  },
+  "status_labels": {
+    "persists": "The audited printed statement remains in the downloaded journal edition.",
+    "corrected": "The journal has repaired the audited statement.",
+    "altered": "The journal changed the statement sufficiently that the original finding requires a new assessment."
+  },
+  "status_counts": {
+    "persists": 10,
+    "corrected": 0,
+    "altered": 0
+  },
+  "findings": [
+    {
+      "id": "C1",
+      "finding": "Derivative L2 norm conservation",
+      "arxiv_locator": {
+        "pages": [
+          12,
+          29
+        ],
+        "labels": [
+          "Theorem III.4 following paragraph",
+          "footnote 10",
+          "Appendix B opening"
+        ]
+      },
+      "journal_locator": {
+        "printed_pages": [
+          11,
+          26
+        ],
+        "pdf_pages_1_based": [
+          12,
+          27
+        ],
+        "labels": [
+          "Theorem 3.4 following paragraph",
+          "footnote 13",
+          "Appendix B after Eq. (65), before B.1"
+        ]
+      },
+      "status": "persists",
+      "description": "The journal retains the assertion that all spatial derivative L2 norms are conserved and that derivatives solve the homogeneous transport PDE. Variable velocity gradients supply a nonzero forcing term; finite-time derivative bounds are needed.",
+      "exact_short_quote": "The L² norm of any derivative of f is constant over time"
+    },
+    {
+      "id": "C2",
+      "finding": "Controlled-SWAP signed/complex overlap",
+      "arxiv_locator": {
+        "pages": [
+          27,
+          28
+        ],
+        "labels": [
+          "Appendix A.3.b",
+          "Eqs. (A15)-(A16)",
+          "Figure 14"
+        ]
+      },
+      "journal_locator": {
+        "printed_pages": [
+          24,
+          25
+        ],
+        "pdf_pages_1_based": [
+          25,
+          26
+        ],
+        "labels": [
+          "Appendix A.3.2",
+          "Eqs. (58)-(59)",
+          "Figure 13 and caption"
+        ]
+      },
+      "status": "persists",
+      "description": "The displayed controlled-SWAP circuit still has a probability formula using real overlap rather than absolute-squared overlap. The phase-gate claim for imaginary overlap also remains. The distinct coherent Hadamard route is not invalidated.",
+      "printed_formula_latex": "P(0)=\\frac{1+\\Re\\langle\\phi|\\psi\\rangle}{2},\\quad P(1)=\\frac{1-\\Re\\langle\\phi|\\psi\\rangle}{2}."
+    },
+    {
+      "id": "C3",
+      "finding": "Polynomial moment continuum coefficient",
+      "arxiv_locator": {
+        "pages": [
+          8
+        ],
+        "labels": [
+          "Eq. (17)",
+          "following C_k definition"
+        ]
+      },
+      "journal_locator": {
+        "printed_pages": [
+          7
+        ],
+        "pdf_pages_1_based": [
+          8
+        ],
+        "labels": [
+          "Section 2.3",
+          "Eq. (17)",
+          "following C_k definition"
+        ]
+      },
+      "status": "persists",
+      "description": "The same finite-grid normalization is retained with the same reciprocal continuum coefficient. The normalized polynomial overlap needs the square root of the product of (2 k_j + 1), rather than its reciprocal.",
+      "printed_formula_latex": "C_{\\vec k}=1/\\sqrt{(2k_1+1)\\cdots(2k_d+1)}"
+    },
+    {
+      "id": "C4",
+      "finding": "Active ket shift versus amplitude derivative sign",
+      "arxiv_locator": {
+        "pages": [
+          4,
+          9,
+          30
+        ],
+        "labels": [
+          "Eqs. (5)-(6)",
+          "Eq. (20)",
+          "Eq. (B4)"
+        ]
+      },
+      "journal_locator": {
+        "printed_pages": [
+          4,
+          9,
+          26
+        ],
+        "pdf_pages_1_based": [
+          5,
+          10,
+          27
+        ],
+        "labels": [
+          "Eqs. (5)-(6)",
+          "Eq. (20)",
+          "Eq. (67)"
+        ]
+      },
+      "status": "persists",
+      "description": "A forward ket shift is combined with the same negative-i stencil, while the derivative lemma still claims the opposite amplitude derivative. Shift, Hamiltonian and Fourier conventions require a coordinated repair."
+    },
+    {
+      "id": "C5",
+      "finding": "Zero-time QFT propagator identity",
+      "arxiv_locator": {
+        "pages": [
+          15
+        ],
+        "labels": [
+          "Eq. (39)"
+        ]
+      },
+      "journal_locator": {
+        "printed_pages": [
+          14,
+          6
+        ],
+        "pdf_pages_1_based": [
+          15,
+          7
+        ],
+        "labels": [
+          "Eq. (39), primary finding",
+          "Eq. (14), inverse-transform comparator"
+        ]
+      },
+      "status": "persists",
+      "description": "Equation (39) still places two forward QFTs around the diagonal exponential. It gives F squared rather than the identity at zero time; Eq. (14) elsewhere uses inverse transforms on opposite sides."
+    },
+    {
+      "id": "C6",
+      "finding": "Lotka-Volterra Liouville q coefficient",
+      "arxiv_locator": {
+        "pages": [
+          17
+        ],
+        "labels": [
+          "Eqs. (42)-(43)"
+        ]
+      },
+      "journal_locator": {
+        "printed_pages": [
+          15
+        ],
+        "pdf_pages_1_based": [
+          16
+        ],
+        "labels": [
+          "Eqs. (42)-(43)"
+        ]
+      },
+      "status": "persists",
+      "description": "The q-derivative coefficient in the density equation still equals qdot rather than minus qdot. The characteristic ODE transformation is correct; the printed density equation has the inconsistent sign."
+    },
+    {
+      "id": "C7",
+      "finding": "Signed stencil norm constant",
+      "arxiv_locator": {
+        "pages": [
+          11
+        ],
+        "labels": [
+          "paragraph below Eq. (26)"
+        ]
+      },
+      "journal_locator": {
+        "printed_pages": [
+          10,
+          30
+        ],
+        "pdf_pages_1_based": [
+          11,
+          31
+        ],
+        "labels": [
+          "paragraph below Eq. (26), primary finding",
+          "Eq. (83), absolute-value comparator"
+        ]
+      },
+      "status": "persists",
+      "description": "The main-text norm bound still sums signed stencil coefficients. Appendix Eq. (83) already uses absolute values. This retained local inconsistency is repaired by summing absolute values and does not change mesh exponents."
+    },
+    {
+      "id": "C8",
+      "finding": "Missing ordered orientation in compact maximum",
+      "arxiv_locator": {
+        "pages": [
+          11
+        ],
+        "labels": [
+          "Theorem III.4, compact alpha_g prime bound"
+        ]
+      },
+      "journal_locator": {
+        "printed_pages": [
+          11
+        ],
+        "pdf_pages_1_based": [
+          12
+        ],
+        "labels": [
+          "Theorem 3.4, compact alpha_g prime bound"
+        ]
+      },
+      "status": "persists",
+      "description": "The full pair sum includes both orientations, but the following maximum remains restricted to m < j. Maximizing over all distinct ordered indices repairs the compact inequality."
+    },
+    {
+      "id": "C9",
+      "finding": "Walsh endpoint and shared axis error budget",
+      "arxiv_locator": {
+        "pages": [
+          24,
+          25
+        ],
+        "labels": [
+          "Eq. (A5)",
+          "Eq. (A10) and following axis-size choice"
+        ]
+      },
+      "journal_locator": {
+        "printed_pages": [
+          21,
+          22
+        ],
+        "pdf_pages_1_based": [
+          22,
+          23
+        ],
+        "labels": [
+          "Eq. (48)",
+          "Eq. (53) and following axis-size choice"
+        ]
+      },
+      "status": "persists",
+      "description": "The one-dimensional series still includes index M despite using M samples. The multivariate selection still budgets epsilon per axis rather than across all axes. Use indices 0 through M-1 and allocate epsilon/d to each axis."
+    },
+    {
+      "id": "C10",
+      "finding": "Coupled consistency-insertion exponent",
+      "arxiv_locator": {
+        "pages": [
+          33
+        ],
+        "labels": [
+          "paragraph after Eq. (B20)"
+        ]
+      },
+      "journal_locator": {
+        "printed_pages": [
+          30
+        ],
+        "pdf_pages_1_based": [
+          31
+        ],
+        "labels": [
+          "paragraph after Eq. (83)"
+        ]
+      },
+      "status": "persists",
+      "description": "The consistency-insertion expression retains the printed epsilon exponent 2-1/(2p). Balanced refinement instead gives T^(1/p) epsilon^(2-1/p). It remains o(epsilon) for fixed T and p >= 2; this arithmetic correction does not refute that coupled asymptotic conclusion.",
+      "printed_formula_latex": "O\\left(L\\frac{T^2}{L^2\\Delta x^2}\\epsilon\\right)=O\\left(\\epsilon^{2-1/(2p)}\\right)",
+      "corrected_formula_latex": "O\\left(T^{1/p}\\epsilon^{2-1/p}\\right)"
+    }
+  ],
+  "positive_journal_additions": [
+    {
+      "id": "J1",
+      "topic": "Gaussian localization-width dependence",
+      "journal_locator": {
+        "printed_pages": [
+          18
+        ],
+        "pdf_pages_1_based": [
+          19
+        ],
+        "section": "5.2 Discussion"
+      },
+      "description": "The journal explicitly discusses initial-function dependence using a Gaussian width sigma. It reports a vector-bound step scale O(sigma^-2) and an operator comparator O(sigma^-(4+2/p)), and warns that other initial functions can behave differently.",
+      "assessment": "A substantive added qualification that must be credited; the present concordance does not independently establish tightness of the new sigma exponents."
+    },
+    {
+      "id": "J2",
+      "topic": "Alternative optimal-time Hamiltonian methods and costs",
+      "journal_locator": {
+        "printed_pages": [
+          18
+        ],
+        "pdf_pages_1_based": [
+          19
+        ],
+        "section": "5.2 Discussion"
+      },
+      "description": "The journal adds a conditional comparison of evolution-and-readout costs using alternative Hamiltonian methods, separates block-encoding costs for coefficients and derivatives, and retains the measurement factor.",
+      "printed_cost_comparison_latex": "O\\left(T^2(C_{\\mathrm{diag}}+2C_{\\mathrm{QFT}})/\\epsilon^2\\right)\\quad\\hbox{versus}\\quad O\\left(T(C_{\\mathrm{diag}}+C_{\\mathrm{derivative}})\\log(1/\\epsilon)/\\epsilon\\right)",
+      "assessment": "This acknowledges implementation and output costs. It is conditional on suitable simulation/convergence assumptions, not a demonstrated end-to-end advantage."
+    },
+    {
+      "id": "J3",
+      "topic": "Periodic-boundary assumption and extensions",
+      "journal_locator": {
+        "printed_pages": [
+          19
+        ],
+        "pdf_pages_1_based": [
+          20
+        ],
+        "section": "5.2 Discussion"
+      },
+      "description": "The journal explicitly calls periodic boundaries a strong assumption and discusses nonperiodic block encodings, linear combinations of Hamiltonian simulations, and boundary penalties. It identifies recovery of vector scaling as requiring additional analysis.",
+      "assessment": "Credit the extension discussion; it does not provide a completed nonperiodic theorem or remove the stated boundary hypothesis."
+    }
+  ]
+}

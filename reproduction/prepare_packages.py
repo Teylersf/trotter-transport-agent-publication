@@ -28,7 +28,7 @@ TAGS = ["quantum-algorithms", "numerical-analysis", "transport-equations",
         "Trotterization", "reproducibility"]
 PLATFORM_HEADINGS = ["Introduction", "Related Work", "Methodology", "Results",
                      "Discussion", "Limitations", "Conclusion"]
-MATH = re.compile(r"\$\$.*?\$\$|(?<![\\$])\$(?!\$).*?(?<!\\)\$(?!\$)", re.S)
+MATH = re.compile(r"\\\[.*?\\\]|\\\(.*?\\\)|\$\$.*?\$\$|(?<![\\$])\$(?!\$).*?(?<!\\)\$(?!\$)", re.S)
 IMAGE = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
 DISCLOSURE = (
     "**Authorship and assistance.** Lattice Audit Agent is the authorized agent "
@@ -83,6 +83,155 @@ def numbered_sections(parsed):
     return out
 
 
+def appendix_sections(parsed):
+    """Keep optional top-level appendices in source order; never discard one."""
+    numbered = numbered_sections(parsed)
+    keys = list(parsed)
+    out = {}
+    if list(numbered) != list(range(1,9)):
+        raise ValueError("Required scientific sections must remain in order 1 through 8")
+    for heading, body in parsed.items():
+        match = re.fullmatch(r"Appendix ([A-Z])(?:[.:]\s*|\s+|$)(.*)", heading)
+        if match:
+            letter = match.group(1)
+            if letter in out:
+                raise ValueError("Duplicate canonical appendix letter")
+            out[letter] = (heading, body)
+    expected = [chr(ord('A')+i) for i in range(len(out))]
+    if list(out) != expected:
+        raise ValueError("Appendices must be contiguous and ordered A, B, ...")
+    permitted = {"Abstract", "References", *(h for h,_ in numbered.values()),
+                 *(h for h,_ in out.values())}
+    if set(parsed) != permitted:
+        raise ValueError("Unrecognized top-level scientific heading; refuse to omit it")
+    conclusion = keys.index(numbered[8][0])
+    reference = keys.index("References")
+    if conclusion >= reference or any(not conclusion < keys.index(h) < reference
+                                     for h,_ in out.values()):
+        raise ValueError("Appendices must follow Conclusion and precede References")
+    if keys != ["Abstract", *(h for h,_ in numbered.values()),
+                *(h for h,_ in out.values()), "References"]:
+        raise ValueError("Canonical top-level section order is inconsistent")
+    return out
+
+
+def protected_blocks(text):
+    """Full text equality is primary; these independent inventories aid review."""
+    return {
+        "math": math_tokens(text),
+        "tables": re.findall(r"(?m)^(?:[ \t]*\|[^\n]*\|[ \t]*(?:\n|$))+", text),
+        "quotations": re.findall(r"(?m)^(?:>[^\n]*(?:\n|$))+", text),
+        "code_fences": re.findall(r"(?ms)^```[^\n]*\n.*?^```[ \t]*$", text),
+        "proof_markers": re.findall(r"(?m)^(?:#{3,6}\s+)?(?:\*\*)?Proof\b[^\n]*", text),
+    }
+
+
+def platform_arrangement(numbered, appendices):
+    """Return unchanged bodies in the required seven-plus-optional order."""
+    mapped = [numbered[1][1], numbered[2][1], numbered[3][1],
+              "### "+numbered[4][0]+"\n\n"+numbered[4][1]+"\n\n### "+numbered[5][0]+"\n\n"+numbered[5][1],
+              numbered[6][1], numbered[7][1], numbered[8][1]]
+    headings = list(PLATFORM_HEADINGS)
+    if appendices:
+        mapped.append("\n\n".join("### "+heading+"\n\n"+body
+                                   for heading,body in appendices.values()))
+        headings.append("Appendix")
+    return headings, mapped
+
+
+def journal_evidence(canonical, version):
+    """A revision's journal claims require the actual public concordance record."""
+    if version == "1.0.0":
+        return None
+    path = canonical/"data"/"journal-comparison.json"
+    data = path.read_bytes()
+    record = json.loads(data)
+    findings = record.get("findings", [])
+    if ([r.get("id") for r in findings] != ["C"+str(i) for i in range(1,11)]
+            or any(r.get("status") != "persists" for r in findings)
+            or record.get("status_counts") != {"persists":10,"corrected":0,"altered":0}):
+        raise ValueError("Journal concordance does not bind all ten persistent groups")
+    edition = record.get("journal_edition", {})
+    if (edition.get("doi") != "10.1088/2058-9565/ae488e"
+            or not re.fullmatch(r"[0-9a-f]{64}", edition.get("sha256", ""))
+            or edition.get("http_status") != 200 or edition.get("pdf_pages") != 34
+            or not isinstance(edition.get("bytes"), int) or edition["bytes"] <= 0):
+        raise ValueError("Incomplete actual journal-PDF provenance")
+    return {"record":record, "path":"data/journal-comparison.json", "sha256":sha(data)}
+
+
+def readme_documents(title, version, code_pin, checks, journal):
+    """Generated only by an explicitly invoked preparation, never at import."""
+    if journal:
+        scope = ("The supplied arXiv v2 and the directly obtained published journal PDF "
+                 "were compared. All ten registered correction groups persist in the "
+                 "checked journal passages, with differing mathematical consequences. "
+                 "The added journal discussions of localization width, implementation/output "
+                 "costs and periodic boundaries are credited. This is not a complete audit "
+                 "of every new journal passage and does not identify the equations used "
+                 "by original code unavailable in the inspected materials.")
+    else:
+        scope = "This version audits arXiv:2508.15691v2; its journal text is not audited in that edition."
+    appendix_note = ("All complete appendices remain after Conclusion in paper.md and "
+                     "are grouped, without shortening, in one optional AgentPub Appendix section."
+                     if checks["appendices"] else "This edition has no optional appendix.")
+    root = f"""# {title}
+
+Agent edition by **Lattice Audit Agent**. Human operator and canonical author: **Taylor Kalin**.
+
+Version {version}; [canonical audit]({CANONICAL_REPOSITORY}). {scope}
+
+The edition preserves all scientific paragraphs, complete proofs, source quotations, tables, ordered math tokens, reference records and figures. Only the agent byline/disclosure, declared figure routes and required platform section arrangement are adapted. {appendix_note} Numerical benefits and limits are retained; this package does not establish quantum advantage or infer fabrication or implementation failure from printed discrepancies.
+
+- [Full agent manuscript](paper.md)
+- [AgentPub payload](agentpub-payload.json) and [AAES registration](aaes-registration.json)
+- [Preservation/copy checks](reproduction/adapter-checks.json)
+- [Reproduction instructions](reproduction/README.md)
+- [Submission context](reproduction/submission-context.json)
+
+The current preparation records {checks['math_segments_in_scientific_body']} scientific-body math segments, {checks['figures']} figures and {checks['reference_records']} references, with {len(checks['copied_scientific_files'])} byte-exact canonical copies. The scientific numerical snapshot is `{code_pin}`; packaging and source-comparison evidence may be newer and are separately hashed. The original canonical manuscript retains Taylor Kalin's byline in `reproduction/canonical/paper/manuscript.md`.
+
+The intended repository is `Teylersf/trotter-transport-agent-publication`. AgentPub identity: `{AGENT_ID}`. Existing AAES identity: [{IDENTITY}](https://gist.github.com/Teylersf/7c74312cf47dcc31c789a8b1c3dedd25). Preparation does not verify public availability, current identity access, GitHub eligibility or review disposition.
+
+**Local preparation only.** Submission gates remain closed pending a final disposition ending the Publish.fun review, verified publication, or formal release. A completed round requesting revisions does not release that gate. No credential or network/submission automation is included. A venue renderer is not certified by local source-preservation checks.
+
+Our own manuscript/figures use CC BY 4.0 and original audit code uses MIT as disclosed by the canonical author. Third-party excerpts, figures and source works retain their own rights and applicable licenses; they are not relicensed by this package.
+"""
+    reproduction = f"""# Reproduction and preparation of version {version}
+
+The numerical scientific snapshot is `{code_pin}`. Exact current manuscript, concordance and copy hashes are in `adapter-checks.json`; updated manuscript/provenance packaging is distinct from unchanged numerical results.
+
+## Numerical checks
+
+The `canonical/` directory contains approved canonical science copied byte-for-byte. From this repository:
+
+```console
+cd reproduction/canonical
+python -m pip install -r requirements.txt
+python experiments/reproduce.py
+python experiments/resource_counterchecks.py
+```
+
+These CPU calculations use NumPy, with Matplotlib for figures. They test specified equations and independent smooth periodic examples. They do not rerun the original hardware or reproduce the source's two-dimensional figures. {scope}
+
+## Offline preparation
+
+```console
+python reproduction/prepare_packages.py --expected-code-commit {code_pin}
+```
+
+Keep the canonical checkout beside this repository, or supply `--canonical-root`. `--expected-manuscript-sha256` can require the exact final manuscript. Preparation performs no network or Git operations, scientific execution, credential access, registration, submission or review call. It checks current inputs before output writes. It can be repeated after authorized canonical corrections.
+
+All required scientific sections 1–8 remain in order; nested Methods headings are retained. Canonical sections 4+5 are grouped under AgentPub Results. {appendix_note} References remain complete in paper.md and are structured outside AgentPub section contents. Every scientific paragraph and complete section body is compared after reversing only allowed authorship/figure-link adaptations; complete proofs are covered by that equality. Math, tables, source blockquotes, code fences and figure captions/order also have separate exact inventories. No scientific simplification, truncation, padding or math-whitespace compression is performed.
+
+Every platform section, including Appendix, must fit both Unicode and UTF-16 counts within 49,000. The saved official template supplies other format checks. Any body-length/ref-count guideline shortfall is reported instead of repaired by changing science. Copied files and the source-concordance JSON have exact byte hashes. Private notes, credentials, caches, raw third-party PDFs and operational venue receipts are excluded.
+
+Every invocation leaves all submission gates false. A later final disposition ending review, verified publication or formal release requires separately verified context; a revision request is not release. Agent-only authorship is explicit, Taylor Kalin's canonical authorship is retained, and AI-assisted checks are not independent human peer review. Token usage is unrecorded; AgentPub's `-1` integer is expressly a missing-data sentinel.
+"""
+    return {"README.md":root.encode("utf-8"),
+            "reproduction/README.md":reproduction.encode("utf-8")}
+
+
 def references(text):
     matches = list(re.finditer(r"^\[(\d+)\] (.+?)(?=\n\n\[\d+\] |\Z)", text, re.M | re.S))
     if not matches:
@@ -130,9 +279,11 @@ def scientific_paragraphs(text):
 
 def public_copy_paths(canonical):
     paths = []
-    explicit = ["requirements.txt", "README.md", "LICENSE", "LICENSE-CODE", "LICENSE-PAPER",
+    explicit = ["requirements.txt", "README.md", "SOURCE.md", "LICENSE", "LICENSE-CODE", "LICENSE-PAPER",
+                "LICENSE-MANUSCRIPT",
                 "data/reproducibility.json", "data/source-provenance.json",
-                "data/correction-registry.json", "data/provenance.json"]
+                "data/correction-registry.json", "data/provenance.json",
+                "data/journal-comparison.json", "data/zenodo-code-archive.json"]
     for name in explicit:
         p = canonical / name
         if p.is_file():
@@ -140,7 +291,9 @@ def public_copy_paths(canonical):
     for folder, suffixes in [("experiments", {".py"}), ("results", {".json", ".csv"}),
                              ("figures", {".png", ".pdf", ".svg"})]:
         paths.extend(p for p in (canonical/folder).glob("*") if p.is_file() and p.suffix in suffixes)
-    for name in ["manuscript.md", "core.md", "closing.md", "resource-discussion.md"]:
+    for name in ["manuscript.md", "core.md", "closing.md", "resource-discussion.md",
+                 "revision-journal-concordance.md", "revision-source-quotes.md",
+                 "revision-numerical-provenance.md"]:
         p = canonical/"paper"/name
         if p.is_file():
             paths.append(p)
@@ -179,12 +332,15 @@ def main():
     schema = json.loads(schema_bytes)
     parsed = sections(source)
     original = numbered_sections(parsed)
+    appendices = appendix_sections(parsed)
+    scientific_sections = [*original.values(), *appendices.values()]
     title_match = re.search(r"^# (.+)$", source, re.M)
     version_match = re.search(r"^Version ([^;\s]+); (.+)$", source, re.M)
     if not title_match or not version_match or "Abstract" not in parsed or "References" not in parsed:
         raise ValueError("Canonical title/version/abstract/references missing")
     title, abstract = title_match.group(1), parsed["Abstract"]
     version, date = version_match.groups()
+    journal = journal_evidence(canonical, version)
     refs, ref_blocks = references(parsed["References"])
     old_disclosures = re.findall(r"^\*\*Authorship and assistance\.\*\* .+$", source, re.M)
     if len(old_disclosures) != 1:
@@ -213,20 +369,18 @@ def main():
             new = ("https://raw.githubusercontent.com/Teylersf/trotter-transport-agent-publication/main/"+local) if absolute else local
             body = body.replace("]("+new+")", "]("+old+")")
         return body
-    # The AAES body retains every original numbered heading and reference record.
+    # The AAES body retains every numbered section and every full appendix.
     agent_body = "\n\n".join("## "+heading+"\n\n"+adapt(body)
-                              for heading, body in original.values())
+                              for heading, body in scientific_sections)
     paper = ("# "+title+"\n\n**"+AGENT_NAME+"**  \n"
              "Authorized agent-only edition. Human operator and canonical author: **Taylor Kalin**.  \n"
              "AgentPub identity: `"+AGENT_ID+"`; AAES identity: `"+IDENTITY+"`.  \n"
              "Taylor Kalin: https://taylorkalin.com ; ORCID 0009-0003-9000-9315.  \n"
              "Version "+version+"; "+date+"\n\n## Abstract\n\n"+abstract+"\n\n"+
              agent_body+"\n\n## References\n\n"+parsed["References"]+"\n")
-    mapped = [original[1][1], original[2][1], original[3][1],
-              "### "+original[4][0]+"\n\n"+original[4][1]+"\n\n### "+original[5][0]+"\n\n"+original[5][1],
-              original[6][1], original[7][1], original[8][1]]
+    platform_headings, mapped = platform_arrangement(original, appendices)
     platform_sections = []
-    for heading, body in zip(PLATFORM_HEADINGS, mapped):
+    for heading, body in zip(platform_headings, mapped):
         content = adapt(body, absolute=True)
         citations = sorted(set(re.findall(r"\[(\d+)\](?!\()", content)), key=int)
         if not set(citations) <= {r["ref_id"] for r in refs}:
@@ -240,15 +394,18 @@ def main():
                "authors": [{"agent_id": AGENT_ID, "display_name": AGENT_NAME, "model_type": "OpenAI Codex"}],
                "sections": platform_sections, "references": refs, "tags": TAGS,
                "metadata": {"agent_model": MODEL, "agent_platform": "Codex desktop", "total_tokens": -1,
-                            "submission_note": "Authorized agent edition; Taylor Kalin is human operator and canonical author. All scientific paragraphs, equations, figure captions and references are retained. Canonical sections4+5 are grouped under Results; figure routes and authorship disclosure are adapted. Exact token usage was not recorded; -1 is an explicit missing-data sentinel. This local preparation has not been submitted. Publish.fun sequencing remains blocked pending verified completed or released review. Full edition: "+AGENT_REPOSITORY+"/blob/main/paper.md ."}}
-    canonical_science = "\n\n".join(body for _,body in original.values())
-    aaes_restored = restore("\n\n".join(body for _,body in numbered_sections(sections(paper)).values()))
+                            "submission_note": "Authorized agent edition; Taylor Kalin is human operator and canonical author. All scientific paragraphs, complete proofs, quotations, tables, equations, figure captions and references are retained. Canonical sections 4+5 are grouped under Results; any complete appendices are grouped into one optional Appendix after Conclusion. Figure routes and authorship disclosure are adapted. Exact token usage was not recorded; -1 is an explicit missing-data sentinel. This local preparation has not been submitted. Publish.fun sequencing remains blocked pending final disposition ending review, verified publication or formal release; a revision request is not release. Full edition: "+AGENT_REPOSITORY+"/blob/main/paper.md ."}}
+    canonical_science = "\n\n".join(body for _,body in scientific_sections)
+    parsed_agent = sections(paper)
+    aaes_restored = restore("\n\n".join(body for _,body in [
+        *numbered_sections(parsed_agent).values(), *appendix_sections(parsed_agent).values()]))
     platform_restored = "\n\n".join(restore(s["content"], absolute=True) for s in platform_sections)
     expected_platform = "\n\n".join(mapped)
     assert aaes_restored == canonical_science
     assert platform_restored == expected_platform
     assert scientific_paragraphs(platform_restored) == scientific_paragraphs(canonical_science)
     assert math_tokens(canonical_science) == math_tokens(platform_restored) == math_tokens(aaes_restored)
+    assert protected_blocks(canonical_science) == protected_blocks(platform_restored) == protected_blocks(aaes_restored)
     assert IMAGE.findall(restore(agent_body)) == images
     assert IMAGE.findall(platform_restored) == images
     assert sections(paper)["References"] == parsed["References"]
@@ -260,7 +417,9 @@ def main():
                         "abstract_word_limit":words(abstract)<=constraints["abstract"]["max_words"],
                         "reference_minimum":len(refs)>=constraints["references"]["min_count"],
                         "body_word_range":constraints["body_word_count"]["min_words"]<=body_words<=constraints["body_word_count"]["max_words"],
-                        "required_sections_and_order":PLATFORM_HEADINGS==schema["agentpub"]["required_sections"]}
+                        "required_sections_and_order":platform_headings[:7]==schema["agentpub"]["required_sections"]
+                            and platform_headings in [PLATFORM_HEADINGS, PLATFORM_HEADINGS+["Appendix"]],
+                        "all_sections_allowed":all(h in constraints["sections"]["allowed"] for h in platform_headings)}
     # Keep any guideline shortfall visible rather than padding or altering science.
     now = datetime.now(timezone.utc).isoformat()
     context = {"prepared_at_utc":now, "canonical_version":version,
@@ -271,14 +430,22 @@ def main():
                "submission_gate_open":False, "agentpub_submission_gate_open":False,
                "aaes_submission_gate_open":False, "public_repository_verified":False,
                "agent_identity_verified_currently":False,
-               "note":"Preparation does not imply publication, completed review, public repository availability, identity eligibility or authorization to submit concurrently. Gate changes require separate verified publication evidence; this script never opens them."}
+               "note":"Preparation does not imply publication, final disposition ending review, public repository availability, identity eligibility or authorization to submit concurrently. A completed round requesting revisions does not release the gate. Gate changes require separate verified publication evidence; this script never opens them."}
     claims = [
         {"text":"The audited v2 derivative-norm conservation assertion fails for a smooth periodic shear satisfying its coordinate-independence condition.", "kind":"finding", "status":"proposed", "evidence_summary":"Exact shear solution and gradient identities in Section 4.1, independently sampled in reproduction/canonical/results/shear.csv.", "confidence_note":"Version-specific statement; does not refute every finite-time vector-norm estimate or audit the inaccessible journal version."},
         {"text":"Smooth periodic coefficients permit a finite-grid commutator bound proportional to inverse mesh spacing, improving the paper's crude inverse-square operator comparator.", "kind":"finding", "status":"proposed", "evidence_summary":"Translation/multiplication commutator identity and numerical operator norms in Section 4.2 and reproduction/canonical/results/commutators.csv.", "confidence_note":"Fixed dimension/order and bounded coefficient gradients; not an optimal end-to-end complexity theorem."},
         {"text":"The printed SWAP-test probabilities and polynomial-moment continuum prefactor disagree with direct finite-dimensional checks.", "kind":"finding", "status":"proposed", "evidence_summary":"Controlled-SWAP matrix and normalized constant-function overlap checks in reproduction/canonical/results/swap.csv, reproduction/canonical/results/moments.csv and reproduction/canonical/results/resource-counterchecks.json.", "confidence_note":"Does not invalidate the separate Hadamard protocol or identify the original code unavailable in the inspected arXiv materials."},
         {"text":"The reported eight-point hardware discretization-error magnitudes are reproduced, and a separate periodic smooth example exhibits a stable fixed-step splitting error under grid refinement.", "kind":"finding", "status":"proposed", "evidence_summary":"reproduction/canonical/results/resource-counterchecks.json retains exact settings and reference-refinement differences.", "confidence_note":"Deterministic classical calculations; no hardware rerun, original Figure 5 reproduction, repaired full theorem or demonstrated quantum advantage."},
     ]
-    novelty = "Version-specific correction audit of arXiv:2508.15691v2 with exact counterexamples, a constructive finite-time regularity replacement, a coefficient-aware finite-grid operator baseline, independent positive diagnostics and explicit implementation limits. Established transport, SWAP and commutator identities are identified as established ingredients, not new discoveries. The journal version is not audited."
+    if journal:
+        claims[0]["confidence_note"] = "Applies to specified arXiv v2 and journal passages; not a complete journal error audit or a refutation of every finite-time smooth-state bound."
+        claims.append({"text":"All ten registered correction groups persist in the directly obtained published journal PDF, with the mathematical and implementation qualifications retained.",
+                       "kind":"finding", "status":"proposed",
+                       "evidence_summary":"reproduction/canonical/data/journal-comparison.json binds C1–C10, each arXiv/journal locator, the official PDF URL and SHA-256 "+journal["record"]["journal_edition"]["sha256"]+". The full source-equation appendix remains in the manuscript.",
+                       "confidence_note":"This checks the ten specified printed groups, not every new journal passage or original execution. Added Gaussian-width, simulation/readout-cost and boundary discussions are credited; local corrections have differing consequences. No fabrication, hardware rerun or original-figure failure is inferred."})
+    novelty = "Version-specific correction audit of arXiv:2508.15691v2 with exact counterexamples, a constructive finite-time regularity replacement, a coefficient-aware finite-grid operator baseline, independent positive diagnostics and explicit implementation limits. Established transport, SWAP and commutator identities are identified as established ingredients, not new discoveries. "
+    novelty += ("The directly obtained journal PDF is also audited for all ten registered groups, which persist with their qualifications. The journal's added localization-width, implementation/output-cost and boundary discussions are credited. This is not a complete audit of every journal addition, a new quantum algorithm, or proof of implementation failure."
+                if journal else "The journal version is not audited in this edition.")
     metadata = {"aaes_version":"4.2", "title":title, "abstract":abstract,
                 "author_ids":[IDENTITY], "submitted_at":now, "tags":TAGS,
                 "generation_environment":{"model":MODEL, "tools":["Python 3.12.14", "NumPy 2.3.5", "Matplotlib"],
@@ -288,7 +455,7 @@ def main():
     registration = {"source":"github:Teylersf/trotter-transport-agent-publication",
                     "submission":{"kind":"paper", "maturity":"final"},
                     "project":{"title":title, "summary":abstract,
-                     "research_question":"Which printed arXivv2 statements fail exact checks, which finite-time/resource qualifications are needed, and which numerical observations survive?", "status":"active"},
+                     "research_question":"Which specified arXiv v2 and journal statements fail exact checks, which finite-time/resource qualifications are needed, and which numerical observations survive?" if journal else "Which printed arXiv v2 statements fail exact checks, which finite-time/resource qualifications are needed, and which numerical observations survive?", "status":"active"},
                     "claims":claims}
     inputs = {p.relative_to(canonical).as_posix():p.read_bytes() for p in public_copy_paths(canonical)}
     if inputs.get("paper/manuscript.md") != source_bytes:
@@ -299,22 +466,35 @@ def main():
     checks = {"canonical_version":version, "scientific_code_commit":args.expected_code_commit,
               "canonical_manuscript_sha256":sha(source_bytes),
               "preparer_sha256":sha(PREPARER_BYTES), "schema_snapshot_sha256":sha(schema_bytes),
-              "scientific_sections":len(original), "platform_sections":PLATFORM_HEADINGS,
+              "scientific_sections":len(original), "appendices":[heading for heading,_ in appendices.values()],
+              "platform_sections":platform_headings,
               "math_segments_in_scientific_body":len(math_tokens(canonical_science)),
               "numbered_equations":len(re.findall(r"\\tag\{[^}]+\}", canonical_science)),
               "figures":len(images), "reference_records":len(refs),
               "reference_source_blocks":ref_blocks, "section_character_counts":caps,
               "body_regex_words":body_words, "abstract_regex_words":words(abstract),
               "all_scientific_paragraphs_exact_after_allowed_adapter_reversal":True,
+              "all_complete_proofs_preserved_by_full_section_equality":True,
+              "full_scientific_section_bodies":[{"heading":heading,"sha256":sha(body.encode("utf-8"))}
+                                               for heading,body in scientific_sections],
+              "protected_block_counts":{kind:len(blocks) for kind,blocks in protected_blocks(canonical_science).items()},
+              "tables_quotations_code_and_proof_markers_exact":True,
               "ordered_math_segments_exact":True, "abstract_exact":True,
               "figure_captions_and_order_exact":True, "all_reference_paragraphs_exact_in_full_edition":True,
               "guideline_checks":guideline_checks, "all_guideline_checks_passed":all(guideline_checks.values()),
               "copied_scientific_files":manifest, "submission_gate_open":False,
               "note":"Original scientific paragraphs/equations are never condensed or padded. Platform references are structured from the complete canonical records. Figure link paths differ by declared route only. submitted_at is not registration evidence."}
+    if journal:
+        if not any(row["canonical_path"] == journal["path"] and row["sha256"] == journal["sha256"] for row in manifest):
+            raise ValueError("Journal claims are not bound to the exact copied concordance")
+        checks["journal_concordance"] = {"path":journal["path"],"sha256":journal["sha256"],
+                                         "specified_groups_audited":10,"persistent_groups":10,
+                                         "complete_journal_audit_claimed":False}
     products = {"paper.md":paper.encode("utf-8"), "agentpub-payload.json":encode_json(payload),
                 "metadata.json":encode_json(metadata), "aaes-registration.json":encode_json(registration),
                 "reproduction/submission-context.json":encode_json(context),
-                "reproduction/adapter-checks.json":encode_json(checks), **copies}
+                "reproduction/adapter-checks.json":encode_json(checks), **copies,
+                **readme_documents(title, version, args.expected_code_commit, checks, journal)}
     # Refuse stale inputs before the first output write. No source is modified.
     if Path(__file__).read_bytes() != PREPARER_BYTES or schema_path.read_bytes() != schema_bytes:
         raise ValueError("Preparer or schema changed during preparation")
